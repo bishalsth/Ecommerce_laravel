@@ -81,6 +81,56 @@
       </div>
     </div>
     
+
+    
+<div class="row-fluid">
+
+<div class="span12">
+
+  <div class="widget-box">
+    <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+      <h5>View Attribute</h5>
+    </div>
+    <div class="widget-content nopadding">
+    <table class="table table-bordered data-table">
+        <thead>
+          <tr>
+              <th>Attribute ID</th>
+            <th>SKU</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Stock</th>
+            
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach($productDetails['attributes'] as $attribute)
+          <tr class="gradeX">
+            <td>{{$attribute->id}}</td>
+            <td>{{$attribute->sku}}</td>
+            <td>{{$attribute->size}}</td>
+            <td>{{$attribute->price}}</td>
+            <td>{{$attribute->stock}}</td>
+           
+           
+            <td class="center">
+            
+       <a id ="delProduct" href="{{url('/admin/delete-product/'.$attribute->id)}}" class="btn btn-danger btn-mini">Delete</a></td>
+
+            
+
+
+          </tr>
+          @endforeach
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
   </div>
 </div>
 
