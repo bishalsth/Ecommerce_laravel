@@ -116,7 +116,7 @@
            
             <td class="center">
             
-       <a id ="delProduct" href="{{url('/admin/delete-product/'.$attribute->id)}}" class="btn btn-danger btn-mini">Delete</a></td>
+       <a id ="delProduct" href="{{url('/admin/delete-attribute/'.$attribute->id)}}" class="btn btn-danger btn-mini">Delete</a></td>
 
             
 
