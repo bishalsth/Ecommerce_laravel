@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2020 at 07:25 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Aug 03, 2020 at 08:22 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,10 +43,15 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `name`, `description`, `url`, `status`, `created_at`, `updated_at`) VALUES
-(9, 0, 'T-shirts', 'T-shirts', 'T-shirts', 1, '2020-07-15 00:36:13', '2020-07-15 00:36:13'),
-(10, 0, 'Shoes', 'Shoes', 'Shoes', 1, '2020-07-15 00:36:31', '2020-07-15 00:36:31'),
-(11, 0, 'Pants', 'pants', 'pants', 1, '2020-07-15 00:50:21', '2020-07-15 00:50:21'),
-(12, 9, 'Casual T-shirts', 'Casual T-shirts', 'Casual T-shirts', 1, '2020-07-15 00:56:46', '2020-07-15 00:56:46');
+(1, 0, 'Shirts', 'Shirts', 'Shirts', 1, '2020-08-02 06:18:45', '2020-08-02 06:18:45'),
+(2, 0, 'Pants', 'Pants', 'Pants', 1, '2020-08-02 06:19:07', '2020-08-02 06:19:07'),
+(3, 0, 'Shoes', 'Shoes', 'Shoes', 1, '2020-08-02 06:19:24', '2020-08-02 06:19:24'),
+(4, 1, 'Half T-shirt', 'Half T-shirt', 'Half T-shirt', 1, '2020-08-02 06:19:54', '2020-08-02 06:19:54'),
+(5, 2, 'Jeans Pants', 'Jeans Pants', 'Jeans Pants', 1, '2020-08-02 06:20:27', '2020-08-02 06:20:27'),
+(6, 3, 'Ankle Boots', 'Ankle Boots', 'Ankle Boots', 1, '2020-08-02 06:21:08', '2020-08-02 06:21:08'),
+(7, 1, 'Full t-shirts', 'Full t-shirts', 'Full t-shirts', 1, '2020-08-02 06:45:48', '2020-08-02 06:45:48'),
+(8, 3, 'Army Shoes', 'Army Shoes', 'Army Shoes', 1, '2020-08-02 06:46:32', '2020-08-02 06:46:32'),
+(9, 3, 'sport Shoes', 'Sport Shoes', 'Sport Shoes', 1, '2020-08-03 10:39:53', '2020-08-03 10:39:53');
 
 -- --------------------------------------------------------
 
@@ -85,7 +90,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_06_26_123206_create_products_table', 1),
 (5, '2020_07_09_140213_create_category_table', 2),
-(6, '2020_07_15_070655_create_products_table', 3);
+(6, '2020_07_15_070655_create_products_table', 3),
+(7, '2020_08_02_044019_create_products_attributes_table', 4),
+(8, '2020_08_02_075021_create_products_attributes_table', 5);
 
 -- --------------------------------------------------------
 
@@ -123,9 +130,37 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `product_name`, `product_code`, `product_color`, `description`, `price`, `image`, `created_at`, `updated_at`) VALUES
-(1, 9, 't-shirts', '4', 'green', 't-shirts', 1500.00, '', '2020-07-16 23:33:40', '2020-07-16 23:33:40'),
-(2, 12, 't-shirts', '1', 'red', 't-shirts', 1500.00, '', '2020-07-16 23:35:54', '2020-07-16 23:35:54'),
-(3, 9, 't-shirts', '4', 'green', 'jj', 444.00, '83514.png', '2020-07-20 05:18:07', '2020-07-23 09:26:36');
+(1, 4, 'Green T-shirt', 'GTS01', 'Green', 'Green', 1500.00, '15261.png', '2020-08-02 06:22:11', '2020-08-02 06:22:11'),
+(2, 5, 'Blue Pants', 'BP01', 'Blue', 'Blue Pants', 2000.00, '6749.jpg', '2020-08-02 06:23:27', '2020-08-02 06:23:27'),
+(3, 6, 'Black Boots', 'BB01', 'Black', 'Black Boots', 2500.00, '12003.jpg', '2020-08-02 06:24:35', '2020-08-02 06:24:35'),
+(4, 9, 'Blue Sport Shoes', 'BSS01', 'Blue', 'Blue SHoes', 5000.00, '16962.jpg', '2020-08-03 10:41:17', '2020-08-03 10:41:17'),
+(5, 9, 'Black Shoes', 'BSS02', 'Black', 'Black sport shoes', 2500.00, '67048.jpg', '2020-08-03 10:41:57', '2020-08-03 10:41:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products_attributes`
+--
+
+CREATE TABLE `products_attributes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `sku` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` double(8,2) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `products_attributes`
+--
+
+INSERT INTO `products_attributes` (`id`, `product_id`, `sku`, `size`, `price`, `stock`, `created_at`, `updated_at`) VALUES
+(1, 1, 'GTS01-M', 'medium', 1500.00, 10, '2020-08-03 06:44:45', '2020-08-03 06:44:45'),
+(2, 1, 'GTS01-L', 'large', 2000.00, 15, '2020-08-03 06:44:45', '2020-08-03 06:44:45'),
+(3, 1, 'GTS01-S', 'small', 1400.00, 5, '2020-08-03 06:44:45', '2020-08-03 06:44:45');
 
 -- --------------------------------------------------------
 
@@ -187,6 +222,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `products_attributes`
+--
+ALTER TABLE `products_attributes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -201,7 +242,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -213,12 +254,18 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `products_attributes`
+--
+ALTER TABLE `products_attributes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
