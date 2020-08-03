@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/','IndexController@index');
 
+Route::get('/products/{url}','ProductsController@listingProduct');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
