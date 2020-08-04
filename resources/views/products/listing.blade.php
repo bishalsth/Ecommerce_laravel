@@ -139,7 +139,7 @@
 											<img src="{{asset( 'img/backend_images/products/small/'.$product->image) }}" alt="" />
 											<h2>{{$product->price}}</h2>
 											<p>{{$product->description}}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											<a href="{{url('/product/'.$product->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 										<!-- <div class="product-overlay">
 											<div class="overlay-content">
@@ -451,12 +451,12 @@
 					</div><!--/category-tab-->
 					
 					<div class="recommended_items"><!--recommended_items-->
+					<div class="col-sm-4">
 						<h2 class="title text-center">recommended items</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 								<div class="item active">	
-									<div class="col-sm-4">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
