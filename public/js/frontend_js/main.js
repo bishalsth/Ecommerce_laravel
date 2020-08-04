@@ -28,3 +28,42 @@ $(document).ready(function(){
 		});
 	});
 });
+
+$(document).ready(function(){
+// alert("test");
+$("#selSize").change(function(){
+	var idSize = $(this).val();
+	// alert(idSize);
+	$.ajax({
+		type:'get',
+		url:'/get-product-size',
+		data:{idSize:idSize},
+		success:function(resp){
+			$("#getPrice").html(" RS " +resp);
+		},error:function(){
+			alert("error");
+		}
+
+	});
+});
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

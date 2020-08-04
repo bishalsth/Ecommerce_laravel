@@ -21,6 +21,8 @@ Route::get('/','IndexController@index');
 Route::get('/products/{url}','ProductsController@listingProduct');
 Route::get('/product/{id}','ProductsController@product');
 
+Route::get('/get-product-size','ProductsController@getProductPrice');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
