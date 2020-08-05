@@ -28,6 +28,7 @@ class ProductsController extends Controller
             $product->product_code=$data['product_code'];
             $product->product_color=$data['product_color'];
             $product->description=$data['description'];
+            $product->care=$data['care'];
             $product->price=$data['product_price'];
 
             //for image
@@ -108,7 +109,7 @@ class ProductsController extends Controller
 
             Product::where(['id'=>$id])->update(['category_id'=>$data['category_id'],
             'product_name'=>$data['product_name'],'product_code'=>$data['product_code'],'product_color'=>$data['product_color'],
-            'description'=>$data['description'],'price'=>$data['product_price'],'image'=>$filename]);
+            'description'=>$data['description'],'care'=>$data['care'],'price'=>$data['product_price'],'image'=>$filename]);
             return redirect()->back()->with('flash_message_success','Product has updated successfully');
         }
 
@@ -165,6 +166,18 @@ class ProductsController extends Controller
             // echo "<pre>"; print_r($data);die;
             foreach($data['sku'] as $key => $val){
                 if(!empty($val)){
+                    $aatrCountSKU = ProductsAttribute::where('sku',$val)->count();
+                    if($aatrCountSKU>0){
+                        return redirect('admin/add-attribute/'.$id)->with('flash_message_error','SKU already exists! Please add another SKU');  
+                    }
+
+                    //prevent Size
+
+                    $attrCOuntSize = ProductsAttribute::where(['product_id'=>$id,'size'=>$data['size'][$key]])->count();
+                    if($attrCOuntSize>0){
+                        return redirect('admin/add-attribute/'.$id)->with('flash_message_error','Size already exists! Please add another Size'); 
+                    }
+
                     $attribute = new ProductsAttribute;
                     $attribute->product_id = $id;
                     $attribute->sku = $val;
@@ -177,7 +190,7 @@ class ProductsController extends Controller
 
                 }
             }
-            return redirect('admin/add_attributes/'.$id)->with('flash_message_success','Product attributes has been added successffully');
+            return redirect('admin/add-attribute/'.$id)->with('flash_message_success','Product attributes has been added successffully');
 
         }
         return view ('admin.products.add_attributes')->with(compact('productDetails'));

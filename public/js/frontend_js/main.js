@@ -34,6 +34,9 @@ $(document).ready(function(){
 $("#selSize").change(function(){
 	var idSize = $(this).val();
 	// alert(idSize);
+	if(idSize ==""){
+		return false;
+	}
 	$.ajax({
 		type:'get',
 		url:'/get-product-size',

@@ -69,6 +69,14 @@
                   <textarea name="description" id="description"></textarea>
                 </div>
               </div>
+
+              <div class="control-group">
+                <label class="control-label">Material and Care</label>
+                <div class="controls">
+                  
+                  <textarea name="care" id="care"></textarea>
+                </div>
+              </div>
            
               <div class="control-group">
                 <label class="control-label">Product price</label>
