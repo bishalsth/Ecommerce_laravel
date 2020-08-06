@@ -10,6 +10,7 @@ use Session;
 use App\Category;
 use App\Product;
 use App\ProductsAttribute;
+use App\ProductsImage;
 
 class ProductsController extends Controller
 {
@@ -229,10 +230,12 @@ class ProductsController extends Controller
     public function product($id=null){
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
 
+        $alternateImage = ProductsImage::where(['product_id'=>$id])->get();
+       
         $productDetails = Product::with('attributes')->where('id',$id)->first();
         // $productDetails = json_decode(json_encode($productDetails));
         // echo "<pre>"; print_r($productDetails);die;
-        return view('products.detail')->with(compact('productDetails','categories'));
+        return view('products.detail')->with(compact('productDetails','categories','alternateImage'));
     }
 
     public function getProductPrice(Request $request){
@@ -244,6 +247,52 @@ class ProductsController extends Controller
 
         echo $proAttr->price;
 
+    }
+
+    public function addImages(Request $request, $id = null){
+        $productDetails = Product::with('attributes')->where(['id'=>$id])->first();
+        // $productDetails = json_decode(json_encode($productDetails));
+        // echo "<pre>"; print_r($productDetails); die;
+
+
+
+        if($request->isMethod('post')){
+            $data = $request->all();
+            // echo "<pre>"; print_r($data); die;
+            // echo "<pre>"; print_r($data['product_id']); die;
+            if ($request->hasFile('image')) {
+                $files = $request->file('image');
+                foreach($files as $file){
+                    // Upload Images after Resize
+                    $image = new ProductsImage;
+                    $extension = $file->getClientOriginalExtension();
+                    $fileName = rand(111,99999).'.'.$extension;
+                    $large_image_path ='img/backend_images/products/large/'.$fileName;
+                    $medium_image_path ='img/backend_images/products/medium/'.$fileName;
+                    $small_image_path ='img/backend_images/products/small/'.$fileName;
+                    Image::make($file)->save($large_image_path);
+                    Image::make($file)->resize(600, 600)->save($medium_image_path);
+                    Image::make($file)->resize(300, 300)->save($small_image_path);
+                    $image->image = $fileName;  
+                    $image->product_id = $productDetails->id;
+                    
+                    $image->save();
+                }   
+            }
+            return redirect('admin/add-images/'.$id)->with('flash_message_success','Multiple image has been addedd successfully');
+         
+        }
+
+        $productsImage = ProductsImage::Where(['product_id'=>$id])->get();
+        //       $productsImage = json_decode(json_encode($productsImage));
+        //  echo "<pre>"; print_r($productsImage); die;
+
+        return view ('admin.products.add_images')->with(compact('productDetails','productsImage'));
+    }
+
+    public function deleteMultipleImage($id=null){
+        ProductsImage::where(['id'=>$id])->delete();
+        return redirect()->back()->with('flash_message_success','Multiple image has been deleted successfully');
     }
 
 }

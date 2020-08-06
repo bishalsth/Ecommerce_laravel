@@ -53,6 +53,15 @@ $("#selSize").change(function(){
 });
 
 
+$(document).ready(function(){
+
+	$(".AltImage").click(function(){
+		var image = $(this).attr('src');
+		// alert(image);
+		$(".MainImage").attr('src',image);
+	});
+});
+
 
 
 
