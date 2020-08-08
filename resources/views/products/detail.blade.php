@@ -47,17 +47,25 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img class="MainImage" src="{{asset( 'img/backend_images/products/small/'.$productDetails->image) }}" alt="" />
-								<!-- <h3>ZOOM</h3> -->
+							<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails">
+							<a href="{{asset( 'img/backend_images/products/large/'.$productDetails->image) }}">
+								<img style="width:300px;" class="MainImage" src="{{asset( 'img/backend_images/products/small/'.$productDetails->image) }}" alt="" />
+								</a>	
+							</div>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								
 								  <!-- Wrapper for slides -->
 								    <div class="carousel-inner">
-										<div class="item active">
+										<div class="item active thumbnails">
+										<a href="{{asset( 'img/backend_images/products/large/'.$productDetails->image) }}" data-standard="{{asset( 'img/backend_images/products/small/'.$productDetails->image) }}">
+								<img  class="AltImage" style="width:80px;" class="MainImage" src="{{asset( 'img/backend_images/products/small/'.$productDetails->image) }}" alt="" />
+								</a>	
 											@foreach($alternateImage as $atImage)
+											<a href="{{asset( 'img/backend_images/products/large/'.$atImage->image) }}" data-standard="{{asset( 'img/backend_images/products/small/'.$atImage->image) }}">
 										 <img class="AltImage" src="{{asset( 'img/backend_images/products/small/'.$atImage->image) }}" alt="" style="width:80px;">
-										 	@endforeach
+										</a>	 
+										 @endforeach
 										</div>
 										
 										
@@ -89,12 +97,14 @@
 									<span id="getPrice">RS {{$productDetails->price}}</span>
 									<label>Quantity:</label>
 									<input type="text" value="3" />
-									<button type="button" class="btn btn-fefault cart">
+									@if($TotalStock>0)
+									<button type="button" id="CartBtn" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
 									</button>
+									@endif
 								</span>
-								<p><b>Availability:</b> In Stock</p>
+								<p><b>Availability:</b> <span id="TextId">@if($TotalStock>0)In Stock @else Out of Stock @endif</span> </p>
 								<p><b>Condition:</b> New</p>
 								<p><b>Brand:</b> E-SHOPPER</p>
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>

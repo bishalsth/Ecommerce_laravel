@@ -231,11 +231,14 @@ class ProductsController extends Controller
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
 
         $alternateImage = ProductsImage::where(['product_id'=>$id])->get();
+
+        $TotalStock = ProductsAttribute::where('product_id',$id)->sum('stock');
+        // echo $TotalStock;die;
        
         $productDetails = Product::with('attributes')->where('id',$id)->first();
         // $productDetails = json_decode(json_encode($productDetails));
         // echo "<pre>"; print_r($productDetails);die;
-        return view('products.detail')->with(compact('productDetails','categories','alternateImage'));
+        return view('products.detail')->with(compact('productDetails','categories','alternateImage','TotalStock'));
     }
 
     public function getProductPrice(Request $request){
@@ -246,6 +249,8 @@ class ProductsController extends Controller
         $proAttr =ProductsAttribute::where(['product_id'=>$proArr[0], 'size'=>$proArr[1]])->first();
 
         echo $proAttr->price;
+        echo "#";
+        echo $proAttr->stock;
 
     }
 
@@ -293,6 +298,21 @@ class ProductsController extends Controller
     public function deleteMultipleImage($id=null){
         ProductsImage::where(['id'=>$id])->delete();
         return redirect()->back()->with('flash_message_success','Multiple image has been deleted successfully');
+    }
+
+    public function editAttribute(Request $request, $id=null){
+        if($request->isMethod('post')){
+            $data = $request->all();
+            // echo "<pre>"; print_r($data);die;
+            // $as = $data['idAttr'];
+            // echo "<pre>"; print_r($as);die;     
+            foreach($data['idAttr'] as $key => $attr){
+                ProductsAttribute::where(['id'=>$data['idAttr'][$key]])->update(['price'=>$data['price'][$key],'stock'=>$data['stock'][$key]]);
+
+            }
+            return redirect()->back()->with('flash_message_success','Attributes has been succesfully update');
+        }
+
     }
 
 }
