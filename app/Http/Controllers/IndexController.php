@@ -9,7 +9,7 @@ use App\Category;
 class IndexController extends Controller
 {
     public function index(){
-        $productsAll = Product::inRandomOrder()->get();
+        $productsAll = Product::inRandomOrder()->where('status',1)->get();
 
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
         // $categories = json_decode(json_encode($categories));

@@ -51,6 +51,12 @@ class ProductsController extends Controller
                  }
                  
             }
+            if(empty($data['status'])){
+                $status = 0;
+            }else{
+                $status =1;
+            }
+            $product->status=$status;
             
             $product->save();
             return redirect()->back()->with('flash_message_success','Product has been added successfully');
@@ -106,11 +112,20 @@ class ProductsController extends Controller
            }else{
                 $filename = $data['current_image'];
            }
+           if(empty($data['care'])){
+               $data['care']='';
+           }
+
+           if(empty($data['status'])){
+            $status = 0;
+        }else{
+            $status =1;
+        }
 
 
             Product::where(['id'=>$id])->update(['category_id'=>$data['category_id'],
             'product_name'=>$data['product_name'],'product_code'=>$data['product_code'],'product_color'=>$data['product_color'],
-            'description'=>$data['description'],'care'=>$data['care'],'price'=>$data['product_price'],'image'=>$filename]);
+            'description'=>$data['description'],'care'=>$data['care'],'price'=>$data['product_price'],'image'=>$filename,'status'=>$status]);
             return redirect()->back()->with('flash_message_success','Product has updated successfully');
         }
 
@@ -214,11 +229,11 @@ class ProductsController extends Controller
                 $cat_ids[] = $subcat->id;
             }
             // echo $cat_ids;die;
-            $productsAll = Product::whereIn('category_id',$cat_ids)->get();
+            $productsAll = Product::whereIn('category_id',$cat_ids)->where('status',1)->get();
 
         }else{
             //if url is sub category
-            $productsAll = Product::where(['category_id'=>$categoryDetails->id])->get();
+            $productsAll = Product::where(['category_id'=>$categoryDetails->id])->where('status',1)->get();
         }
         
         
@@ -238,7 +253,14 @@ class ProductsController extends Controller
         $productDetails = Product::with('attributes')->where('id',$id)->first();
         // $productDetails = json_decode(json_encode($productDetails));
         // echo "<pre>"; print_r($productDetails);die;
-        return view('products.detail')->with(compact('productDetails','categories','alternateImage','TotalStock'));
+
+        $relatedProducts = Product::where('id','!=',$id)->where(['category_id'=>$productDetails->category_id])->get();
+        //   $relatedProducts = json_decode(json_encode($relatedProducts));
+        // echo "<pre>"; print_r($relatedProducts);die;
+
+
+        
+        return view('products.detail')->with(compact('productDetails','categories','alternateImage','TotalStock','relatedProducts'));
     }
 
     public function getProductPrice(Request $request){
