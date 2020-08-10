@@ -81,12 +81,19 @@
 							</div>
 
 						</div>
+
 						<div class="col-sm-7">
+							<form method="post" name="addtocartForm" id="addtocartForm" action="{{url('add-cart')}}" >{{csrf_field()}}
+							<input type="hidden" name="product_id" value="{{$productDetails->id}}">
+							<input type="hidden" name="product_name" value="{{$productDetails->product_name}}">
+							<input type="hidden" name="product_code" value="{{$productDetails->product_code}}">
+							<input type="hidden" name="product_color" value="{{$productDetails->product_color}}">
+							<input type="hidden" name="price" id="price" value="{{$productDetails->price}}">
 							<div class="product-information"><!--/product-information-->
 								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
 								<h2> {{$productDetails->product_name}}</h2>
                                 <p>Product Code: {{$productDetails->product_code}}</p>
-                                <p> <select id="selSize" name="select" style="width:150px;">
+                                <p> <select id="selSize" name="size" style="width:150px;">
                                     <option value="Select Size">Select Size</option>
                                     @foreach($productDetails->attributes as $att)
                                     <option value="{{$productDetails->id}}-{{$att->size}}">{{$att->size}}</option>
@@ -96,9 +103,9 @@
 								<span>
 									<span id="getPrice">RS {{$productDetails->price}}</span>
 									<label>Quantity:</label>
-									<input type="text" value="3" />
+									<input type="text" name="quantity" value="1" />
 									@if($TotalStock>0)
-									<button type="button" id="CartBtn" class="btn btn-fefault cart">
+									<button type="submit" id="CartBtn" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
 									</button>
@@ -109,6 +116,7 @@
 								<p><b>Brand:</b> E-SHOPPER</p>
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->
+							</form>
 						</div>
 					</div><!--/product-details-->
 					

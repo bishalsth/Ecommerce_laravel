@@ -28,7 +28,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
-ROute::match(['get','post'],'/admin','AdminController@login');
+Route::match(['get','post'],'/admin','AdminController@login');
+
+//Add to cart
+Route::match(['get','post'],'/add-cart','ProductsController@addtoCart');
+
+Route::get('/cart','ProductsController@cart');
 
 Route::group(['middleware' => ['auth']], function(){
 

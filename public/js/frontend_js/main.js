@@ -44,6 +44,7 @@ $("#selSize").change(function(){
 		success:function(resp){
 			var arr = resp.split("#");
 			$("#getPrice").html(" RS " +arr[0]);
+			$("#price").val(arr[0]);
 			if(arr[1]==0){
 				$("#CartBtn").hide();
 				$("#TextId").text("Out of Stock");
