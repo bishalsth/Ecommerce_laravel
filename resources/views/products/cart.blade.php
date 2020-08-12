@@ -12,7 +12,7 @@
 			</div>
 			<div class="table-responsive cart_info">
             @if(Session::has('flash_message_error'))
-        <div class="alert alert-error alert-block">
+        <div class="alert alert-danger alert-block">
 	<button type="button" class="close" data-dismiss="alert">×</button>	
         <strong>{{ session('flash_message_error') }}</strong>
 </div>
@@ -35,10 +35,11 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php  $total_amount=0; ?>
                         @foreach($userCart as $cart)
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
+								<a href=""><img style="width:100px;" src="{{asset( 'img/backend_images/products/small/'.$cart->image) }}" alt=""></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{$cart->product_name}}</a></h4>
@@ -50,18 +51,21 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
+									<a class="cart_quantity_up" href="{{url('/cart/update-cart/'.$cart->id.'/1')}}"> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value="{{$cart->quantity}}" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									@if($cart->quantity>1)
+									<a class="cart_quantity_down" href="{{url('/cart/update-cart/'.$cart->id.'/-1')}}"> - </a>
+									@endif
 								</div>
 							</td>
 							<td class="cart_total">
 								<p class="cart_total_price">Rs {{$cart->price*$cart->quantity}}</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="{{url('/delete-cart/'.$cart->id)}}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
+						<?php $total_amount= $total_amount +($cart->price*$cart->quantity); ?>
                         @endforeach
 					</tbody>
 				</table>
@@ -133,10 +137,8 @@
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
+							
+							<li>Total <span>RS <?php echo $total_amount; ?></span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Update</a>
 							<a class="btn btn-default check_out" href="">Check Out</a>

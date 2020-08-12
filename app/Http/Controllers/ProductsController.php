@@ -357,10 +357,24 @@ class ProductsController extends Controller
        
 
         $sizeArr = explode("-",$data['size']);
+
+        $contProducts =  DB::table('cart')->where(['product_id'=>$data['product_id'],
+        'product_color'=>$data['product_color'],
+        'size'=>$sizeArr[1],'session_id'=>$session_id])->count();
+
+        // echo $contProducts;die;
+        if($contProducts>0){
+            return redirect()->back()->with('flash_message_error','Product already exist!'); 
+
+        }else{
+            $getsku = ProductsAttribute::select('sku')->where(['product_id'=>$data['product_id'],'size'=>$sizeArr[1]])->first();
+            DB::table('cart')->insert(['product_id'=>$data['product_id'],'product_name'=>$data['product_name'],
+            'product_code'=>$getsku->sku,'product_color'=>$data['product_color'],'price'=>$data['price'],
+            'size'=>$sizeArr[1],'user_email'=>$data['user_email'],'quantity'=>$data['quantity'],'session_id'=>$session_id]);
+
+        }
         
-        DB::table('cart')->insert(['product_id'=>$data['product_id'],'product_name'=>$data['product_name'],
-        'product_code'=>$data['product_code'],'product_color'=>$data['product_color'],'price'=>$data['price'],
-        'size'=>$sizeArr[1],'user_email'=>$data['user_email'],'quantity'=>$data['quantity'],'session_id'=>$session_id]);
+      
 
         return redirect('/cart')->with('flash_message_success','Product has been added to Cart');
 
@@ -369,9 +383,40 @@ class ProductsController extends Controller
     public function cart($id=null){
         $session_id =Session::get('session_id');
         $userCart = DB::table('cart')->where(['session_id'=>$session_id])->get();
+        
+        foreach($userCart as $key => $cart){
+            // echo $cart->product_id;
+            $productDetails = Product::where('id',$cart->product_id)->first();
+             $userCart[$key]->image=$productDetails->image;
+        }
+
+        // echo "<pre>";print_r($userCart);die;
 
 
         return view('products.cart')->with(compact('userCart'));
+    }
+
+    public function deleteCart($id=null){
+
+        DB::table('cart')->where('id',$id)->delete();
+        return redirect()->back()->with('flash_message_success','Items Successfully removed');
+    }
+
+    public function updatecartQuantity($id=null,$quantity=null){
+
+        $getstock = DB::table('cart')->where('id',$id)->first();
+        $getAttrstock = ProductsAttribute::where(['sku'=>$getstock->product_code])->first();
+        // echo $getstock->quantity;
+        // echo "--";
+        // echo $getAttrstock->stock;die;
+        $updated_quantity = $getstock->quantity+$quantity;
+        if($getAttrstock->stock >= $updated_quantity){
+            DB::table('cart')->where('id',$id)->increment('quantity',$quantity);
+        }else{
+            return redirect()->back()->with('flash_message_error','required stock is not available');
+        }
+        
+        return redirect()->back()->with('flash_message_success','quantity has been succesfully updated');
     }
 
 }

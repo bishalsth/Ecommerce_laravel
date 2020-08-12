@@ -33,6 +33,13 @@ Route::match(['get','post'],'/admin','AdminController@login');
 //Add to cart
 Route::match(['get','post'],'/add-cart','ProductsController@addtoCart');
 
+//Delete Cart
+Route::get('/delete-cart/{id}','ProductsController@deleteCart');
+//update cart
+Route::get('/cart/update-cart/{id}/{quantity}','ProductsController@updatecartQuantity');
+
+
+
 Route::get('/cart','ProductsController@cart');
 
 Route::group(['middleware' => ['auth']], function(){
