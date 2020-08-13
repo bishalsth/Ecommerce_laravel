@@ -14,6 +14,7 @@
 <link href="font-awesome/{{ asset('fonts/backend_fonts/css/font-awesome.css') }}" rel="stylesheet" />
 <link rel="stylesheet" href="{{ asset('css/backend_css/jquery.gritter.css') }}" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 
@@ -64,5 +65,14 @@ function resetMenu() {
    document.gomenu.selector.selectedIndex = 2;
 }
 </script>
+
+<script>
+  $( function() {
+    $( "#expiry_date" ).datepicker({
+    minDate: 0,
+    dateFormat: 'yy-mm-dd'
+      });
+  } );
+  </script>
 </body>
 </html>
