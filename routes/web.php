@@ -38,6 +38,8 @@ Route::get('/delete-cart/{id}','ProductsController@deleteCart');
 //update cart
 Route::get('/cart/update-cart/{id}/{quantity}','ProductsController@updatecartQuantity');
 
+//Check Coupon
+Route::post('/cart/apply-coupon','ProductsController@applyCoupon');
 
 
 Route::get('/cart','ProductsController@cart');

@@ -82,63 +82,32 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="chose_area">
+					<form action="{{url('/cart/apply-coupon')}}" method="post"> {{csrf_field()}}
 						<ul class="user_option">
 							<li>
-								<input type="checkbox">
-								<label>Use Coupon Code</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Use Gift Voucher</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Estimate Shipping & Taxes</label>
-							</li>
-						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
-								<select>
-									<option>United States</option>
-									<option>Bangladesh</option>
-									<option>UK</option>
-									<option>India</option>
-									<option>Pakistan</option>
-									<option>Ucrane</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
+								
+								<label>Coupon Code</label>
+								<input type="text" name="coupon_code">
 								
 							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
-								<select>
-									<option>Select</option>
-									<option>Dhaka</option>
-									<option>London</option>
-									<option>Dillih</option>
-									<option>Lahore</option>
-									<option>Alaska</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-							
-							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text">
-							</li>
+							<input type="submit" value="Apply Coupon" class="btn btn-primary">
 						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
+
+						
+					
+						</form>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							
-							<li>Total <span>RS <?php echo $total_amount; ?></span></li>
+							@if(!empty(Session::get('CouponAmount')))
+							<li>Sub Total <span>RS <?php echo $total_amount; ?></span></li>
+							<li>Coupon Discount <span>RS <?php echo Session::get('CouponAmount'); ?></span></li>
+							<li>Grand Total <span>RS <?php echo $total_amount- Session::get('CouponAmount'); ?></span></li>
+							@else
+							<li>Grand Total <span>RS <?php echo $total_amount; ?></span></li>
+							@endif
 						</ul>
 							<a class="btn btn-default update" href="">Update</a>
 							<a class="btn btn-default check_out" href="">Check Out</a>
