@@ -342,6 +342,10 @@ class ProductsController extends Controller
     }
 
     public function addtoCart(Request $request,$id=null){
+        Session::forget('CouponAmount');
+        Session::forget('CouponCode');
+
+
         $data = $request->all();
         // echo "<pre>"; print_r($data);die; 
        
@@ -398,12 +402,19 @@ class ProductsController extends Controller
     }
 
     public function deleteCart($id=null){
+        Session::forget('CouponAmount');
+        Session::forget('CouponCode');
+
 
         DB::table('cart')->where('id',$id)->delete();
         return redirect()->back()->with('flash_message_success','Items Successfully removed');
     }
 
     public function updatecartQuantity($id=null,$quantity=null){
+
+        Session::forget('CouponAmount');
+        Session::forget('CouponCode');
+
 
         $getstock = DB::table('cart')->where('id',$id)->first();
         $getAttrstock = ProductsAttribute::where(['sku'=>$getstock->product_code])->first();

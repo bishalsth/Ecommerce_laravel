@@ -75,6 +75,12 @@ Route::group(['middleware' => ['auth']], function(){
     Route::match(['get','post'],'/admin/edit-coupon/{id}','CouponsController@editCoupon');
     Route::get('/admin/delete-coupon/{id}','CouponsController@deleteCoupon');
 
+    //Route for Banner
+    Route::match(['get','post'],'/admin/add-banner','BannerController@addBanner' );
+    Route::get('/admin/view-banner','BannerController@viewBanner');
+    Route::get('/admin/delete-banner/{id}','BannerController@deleteBanner');
+    Route::match(['get','post'],'/admin/edit-banner/{id}','BannerController@editBanner');
+
 });
 
 
