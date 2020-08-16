@@ -103,6 +103,51 @@ $('.toggle').on('click', function() {
 	}
 });
 
+$().ready(function(){
+	// alert("test");
+	$("#registerForm").validate({
+		rules:{
+			name:{
+				required:true,
+				minlength:2,
+				
+
+			},
+			password:{
+				required:true,
+				minlength:6
+
+			},
+			email:{
+				required:true,
+				email:true,
+				remote:"/check-email"
+		}
+
+		},
+		messages:{
+			name: {required:"Please provide your Name",
+			minlength:"Please provide atleast 2 characters long"
+			
+
+			},
+			password:{
+				required:"Please provide your Password",
+				minlength:"Please provide atleast 6 characters long"
+			},
+			email:{
+				required:"Pleaee enter your email",
+				email:"Please enter valid email",
+				remote:"Email already exist"
+			}
+
+		}
+
+	});
+});
+
+
+
 
 
 
