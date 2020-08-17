@@ -18,13 +18,10 @@
         @endif
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
-						<h2>Login to your account</h2>
-						<form action="{{url('/user-login')}}" method="post" id="LoginForm" name="LoginForm">
+						<h2>Update account</h2>
+						<form action="" method="post" id="LoginForm" name="LoginForm">
 						{{csrf_field()}}
-							<input type="email" id="email" name="email" placeholder="Email" />
-							<input type="password" id="password" name="password" placeholder=" Password" />
-							
-							<button type="submit" class="btn btn-default">Login</button>
+						
 						</form>
 					</div><!--/login form-->
 				</div>
@@ -33,13 +30,10 @@
 				</div>
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
-						<h2>New User Signup!</h2>
-                        <form id="registerForm" name="registerForm" action="{{url('/user-register')}}" method="post">
+						<h2>New User Update!</h2>
+                        <form id="registerForm" name="registerForm" action="" method="post">
                         {{csrf_field()}}
-							<input type="text" name="name" id="name" placeholder="Name"/>
-							<input type="email" name="email" id="email" placeholder="Email Address"/>
-							<input type="password" name="password" id="myPassword" placeholder="Password"/>
-							<button type="submit" class="btn btn-default">Signup</button>
+							
 						</form>
 					</div><!--/sign up form-->
 				</div>

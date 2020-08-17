@@ -105,6 +105,7 @@ $('.toggle').on('click', function() {
 
 $().ready(function(){
 	// alert("test");
+
 	$("#registerForm").validate({
 		rules:{
 			name:{
@@ -144,6 +145,44 @@ $().ready(function(){
 		}
 
 	});
+
+	//Validate Login Form
+	$("#LoginForm").validate({
+		rules:{
+			
+			password:{
+				required:true,
+				
+			},
+			email:{
+				required:true,
+				email:true,
+				
+		}
+
+		},
+		messages:{
+			
+			password:{
+				required:"Please provide your Password"
+				
+			},
+			email:{
+				required:"Pleaee enter your email",
+				email:"Please enter valid email"
+				
+			}
+
+		}
+
+	});
+
+	$('#myPassword').passtrength({
+		minChars: 4,
+		passwordToggle: true,
+		tooltip: true,
+		eyeImg :'img/frontend_images/eye.svg'
+	  });
 });
 
 

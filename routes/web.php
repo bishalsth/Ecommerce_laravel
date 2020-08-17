@@ -45,9 +45,28 @@ Route::post('/cart/apply-coupon','ProductsController@applyCoupon');
 Route::get('/cart','ProductsController@cart');
 
 //For User Login and register
-Route::match(['get','post'],'/login-register','UsersController@register');
+Route::get('/login-register','UsersController@userLoginRegister');
+
+
+Route::post('/user-register','UsersController@register');
+
 //Check Email
 Route::match(['get','post'],'/check-email','UsersController@checkEmail');
+//user logout
+Route::get('/user-logout','UsersController@logout');
+
+//User Login
+Route::post('/user-login','UsersController@login');
+
+
+
+
+
+Route::group(['middleware' => ['frontlogins']], function(){
+
+    //User Account
+    Route::match(['get','post'],'/account','UsersController@account');
+});
 
 Route::group(['middleware' => ['auth']], function(){
 
