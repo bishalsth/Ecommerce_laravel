@@ -183,6 +183,103 @@ $().ready(function(){
 		tooltip: true,
 		eyeImg :'img/frontend_images/eye.svg'
 	  });
+
+	  //Validate Account Update
+	  $("#AccountForm").validate({
+		rules:{
+			name:{
+				required:true
+				
+				
+
+			},
+			address:{
+				required:true
+				
+
+			},
+			city:{
+				required:true
+				
+		},
+		state:{
+			required:true
+			
+	},
+	country:{
+		required:true
+		
+},
+pincode:{
+	required:true
+	
+},
+mobile:{
+	required:true
+	
+}
+		},
+		messages:{
+			name: {required:"Please provide your Name"
+			
+			
+
+			},
+			address:{
+				required:"Please provide your Address"
+			},
+			city:{
+				required:"Pleaee enter your city"
+				
+			},
+			state:{
+				required:"Pleaee enter your state"
+				
+			},
+			country:{
+				required:"Pleaee enter your country"
+				
+			},
+			pincode:{
+				required:"Pleaee enter your pincode"
+				
+			},
+			mobile:{
+				required:"Pleaee enter your mobile"
+				
+			}
+
+		}
+
+	});
+
+
+	//check password
+	$("#current_pwd").keyup(function(){
+		var current_pwd = $(this).val();
+		// alert(current_pwd);
+		$.ajax({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					},
+			type:'post',
+			url:'/check-user-pwd',
+			data:{current_pwd:current_pwd},
+			success:function(resp){
+				if(resp=="false"){
+					$("#chkPWD").html("<font color='red'>Current Password is incorrect</font>");
+
+				}else if(resp=="true"){
+					$("#chkPWD").html("<font color='green'>Current Password is Correct</font>");
+				}
+			},
+			error:function(){
+				alert("error");
+
+			}
+
+		});
+	});
 });
 
 
