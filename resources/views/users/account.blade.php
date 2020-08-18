@@ -51,8 +51,8 @@
                         {{csrf_field()}}
 						<input type="password" id="current_pwd"  name="current_pwd" placeholder="Current Password" />
 						<span id="chkPWD"></span>
-						<input type="password" id="new_password"  name="new_password" placeholder="New Password" />
-						<input type="password" id="confirm_password"  name="confirm_password" placeholder="Confirm Password" />	
+						<input type="password" id="new_pwd"  name="new_pwd" placeholder="New Password" />
+						<input type="password" id="confirm_pwd"  name="confirm_pwd" placeholder="Confirm Password" />	
 						<button type="submit" class="btn btn-default">Update</button>
 						</form>
 					</div><!--/sign up form-->

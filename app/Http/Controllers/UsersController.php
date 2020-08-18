@@ -130,4 +130,14 @@ class UsersController extends Controller
             echo "false";die;
         }
     }
+
+    public function changePassword(Request $request){
+        $data= $request->all();
+        // echo "<pre>"; print_r($data);die;
+        // $old_pwd= User::where('id',Auth::User()->id)->first();
+        // $current_pwd= $data['confirm_pwd']
+        $new_pwd = bcrypt($data['new_pwd']);
+        User::where('id',Auth::User()->id)->update(['password'=>$new_pwd]);
+        return redirect()->back()->with('flash_message_success','Password updated Successfully');
+    }
 }
