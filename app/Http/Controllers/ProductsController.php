@@ -17,6 +17,7 @@ use App\DeliveryAddress;
 use DB;
 use Illuminate\Support\Str;
 use App\Coupon;
+use App\Banner;
 // use Illuminate\Support\Str;
 
 class ProductsController extends Controller
@@ -225,6 +226,10 @@ class ProductsController extends Controller
     }
 
     public function listingProduct($url = null){
+        $banners = Banner::where('status','1')->get();
+        // $banners = json_decode(json_encode($banners));
+        // echo "<pre>"; print_r($banners);die;
+
         // echo $url;die;
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
         $categoryDetails = Category::where(['url'=>$url])->first();
@@ -244,7 +249,7 @@ class ProductsController extends Controller
         }
         
         
-        return view('products.listing')->with(compact('productsAll','categories','categoryDetails'));
+        return view('products.listing')->with(compact('productsAll','categories','categoryDetails','banners'));
 
 
     }
@@ -512,6 +517,11 @@ class ProductsController extends Controller
             $shippingDetails = DeliveryAddress::where('user_id',$user_id)->first();
         }
 
+        //Update cart table with user email
+        $session_id = Session::get('session_id');
+        // echo "<pre>";print_r($session_id);die;
+        DB::table('cart')->where(['session_id'=>$session_id])->update(['user_email'=>$user_email]);
+
         if($request->isMethod('post')){
             $data = $request->all();
             // echo "<pre>";print_r($data);die;
@@ -550,11 +560,29 @@ class ProductsController extends Controller
                     $shipping->mobile = $data['shipping_mobile'];
                     $shipping->save();
                 }
-                echo "redirect to order REvview page";die;
+                // echo "redirect to order REvview page";die;
+                return redirect()->action('ProductsController@orderReview');
 
            
         }
         return view('products.checkout')->with(compact('userDetails','countries','shippingDetails'));
+    }
+
+
+    public function orderReview(Request $request){
+        $user_id = Auth::user()->id;
+        $user_email = Auth::user()->email;
+        $userDetails = User::where('id',$user_id)->first();
+        $shippingDetails = DeliveryAddress::where('user_id',$user_id)->first();
+
+        $userCart = DB::table('cart')->where(['user_email'=>$user_email])->get();
+        foreach($userCart as $key => $product){
+            $productDetails = Product::where('id',$product->product_id)->first();
+            $userCart[$key]->image = $productDetails->image;
+        }
+
+        // echo "<pre>";print_r($userCart);die;
+        return view('products.order_review')->with(compact('userDetails','shippingDetails','userCart'));
     }
 
 }

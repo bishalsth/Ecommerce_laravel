@@ -68,7 +68,7 @@ a#scrollUp i{
 **************************/
 
 .header_top {
-  background: none repeat scroll 0 0 #F0F0E9;
+  background: none repeat scroll 0 0 #feee00;
 }
 
 .contactinfo ul li:first-child{
@@ -198,7 +198,7 @@ a#scrollUp i{
 
 
 .shop-menu ul li a {
-  background: #FFFFFF;
+  background: #feee00;
   color: #696763;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -253,7 +253,7 @@ a#scrollUp i{
 }
 
 .search_box input {
-  background: #F0F0E9;
+  background: #f9f9e4;
   border: medium none;
   color: #B2B2B2;
   font-family: 'roboto';
@@ -262,10 +262,11 @@ a#scrollUp i{
   height: 35px;
   outline: medium none;
   padding-left: 10px;
-  width: 155px;
+
   background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
   background-position: 130px;
+  width:400px;
 }
 
 
@@ -346,7 +347,7 @@ ul.sub-menu {
 **************************/
 
 #footer {
-  background: #F0F0E9;
+  background: #f3f3aa;
 }
 
 

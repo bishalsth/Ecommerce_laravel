@@ -5,6 +5,12 @@
 <section id="form"><!--form-->
 
 		<div class="container">
+                <div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li class="active">Check Out</li>
+				</ol>
+			</div>
         @if(Session::has('flash_message_error'))
         <div class="alert alert-error alert-block">
 	<button type="button" class="close" data-dismiss="alert">×</button>	
@@ -97,6 +103,9 @@
 </form>
 		</div>
     </section><!--/form-->
+
+
+    
     
 
     @endsection
