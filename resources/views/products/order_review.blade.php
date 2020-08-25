@@ -137,6 +137,7 @@
 							</td>
 							
 						</tr>
+						<?php $total_amount = $total_amount + ($cart->price*$cart->quantity); ?>
                   @endforeach
 
 
@@ -146,19 +147,26 @@
 								<table class="table table-condensed total-result">
 									<tr>
 										<td>Cart Sub Total</td>
-										<td>$59</td>
+										<td>RS {{$total_amount}}</td>
 									</tr>
-									<tr>
-										<td>Exo Tax</td>
-										<td>$2</td>
-									</tr>
+								
 									<tr class="shipping-cost">
 										<td>Shipping Cost</td>
 										<td>Free</td>										
 									</tr>
+									<tr class="shipping-cost">
+										<td>Discount Amount</td>
+										<td> 
+										@if(!empty(Session::get('CouponAmount')))
+										RS {{ Session::get('CouponAmount') }}
+										@else
+										0
+										@endif
+										</td>										
+									</tr>
 									<tr>
-										<td>Total</td>
-										<td><span>$61</span></td>
+										<td>Grand Total</td>
+										<td><span>RS {{$total_amount}} </span></td>
 									</tr>
 								</table>
 							</td>
