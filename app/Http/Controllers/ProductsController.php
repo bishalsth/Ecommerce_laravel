@@ -667,6 +667,10 @@ class ProductsController extends Controller
                 $cartPro->product_qty = $pro->quantity;
                 $cartPro->save();
 
+                Session::put('order_id',$order_id);
+                Session::put('grand_total',$data['grand_total']);
+                 return redirect('/thanks');
+
             
 
             }
@@ -674,4 +678,24 @@ class ProductsController extends Controller
         }
     }
 
+    public function thanks(){
+        $user_email = Auth::user()->email;
+        DB::table('cart')->where('user_email',$user_email)->delete();         
+        return view('products.thanks');
+    }
+
+    public function userOrder(){
+        $user_id = Auth::user()->id;
+        $orders = Order::with('orders')->where('user_id',$user_id)->get();
+        // $orders = json_decode(json_encode($orders));
+        // echo "<pre>";print_r($orders);die;
+        return view('orders.users_orders')->with(compact('orders'));
+    }
+
+    public function userOrderDetails($order_id){
+
+        $user_id = Auth::user()->id;
+        $orderDetails = Order::with('orders')->where('id',$order_id)->first();
+        return view('orders.users_order_details')->with(compact('orderDetails'));
+    }
 }
