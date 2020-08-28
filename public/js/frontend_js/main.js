@@ -43,7 +43,7 @@ $("#selSize").change(function(){
 		data:{idSize:idSize},
 		success:function(resp){
 			var arr = resp.split("#");
-			$("#getPrice").html(" RS " +arr[0]);
+			$("#getPrice").html(" $ " +arr[0]);
 			$("#price").val(arr[0]);
 			if(arr[1]==0){
 				$("#CartBtn").hide();
@@ -334,6 +334,17 @@ mobile:{
 		}
 	});
 });
+
+
+function selectPaymentMethod(){
+	if($("#COD").is(':checked') || $("#paypal").is(':checked') )  {
+		
+	}else{
+		alert("Please enter Payment mehtod to order");
+		return false;
+	}
+	
+}
 
 
 

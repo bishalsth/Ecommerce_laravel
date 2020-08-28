@@ -40,7 +40,9 @@
                             {{$userDetails->mobile}} 
                             
 </div>
-
+<div class="form-group"> 
+                            {{$userDetails->vat}} 
+                            </div>
 
 							
 					
@@ -74,6 +76,9 @@
                             </div>
                             <div class="form-group"> 
 							{{$shippingDetails->mobile}}
+</div>
+<div class="form-group"> 
+							{{$shippingDetails->vat}}
 </div>
 							
 					
@@ -166,7 +171,7 @@
 									</tr>
 									<tr>
 										<td>Grand Total</td>
-										<td><span>RS {{$total_amount}} </span></td>
+										<td><span>RS {{ $grand_total= $total_amount-Session::get('CouponAmount')}} </span></td>
 									</tr>
 								</table>
 							</td>
@@ -174,17 +179,27 @@
 					</tbody>
 				</table>
 			</div>
+
+			<form action="{{url('/place-order')}}" method="post" name="paymentForm" id="paymentForm"  >{{csrf_field()}}
+
 			<div class="payment-options">
+				<input type="hidden" id="" name="grand_total" value="{{$grand_total}}">
 					<span>
-						<label><input type="checkbox"> Direct Bank Transfer</label>
+						<label> <strong>Select Payment Method:</strong></label>
 					</span>
 					<span>
-						<label><input type="checkbox"> Check Payment</label>
+						<label><input type="radio" name="payment_method" id="COD" value="COD"> COD</label>
 					</span>
 					<span>
-						<label><input type="checkbox"> Paypal</label>
+						<label><input type="radio" name="payment_method" id="paypal" value="paypal"> Paypal</label>
 					</span>
+
+					<span style="float:right;">
+					<button type="submit" class="btn btn-primary"  onclick ="return selectPaymentMethod();" >Place Order</button>
+					</span>
+					
 				</div>
+				</form>
 		</div>
 	</section> <!--/#cart_items-->
 

@@ -57,6 +57,18 @@
                             <input type="text" name="billing_mobile" id="billing_mobile" @if(!empty($userDetails->mobile))value="{{$userDetails->mobile}}" @endif       placeholder="Billing Mobile" class="form-control"/>
                             
 </div>
+<div class="form-group"> 
+                            <input type="text" name="billing_vat" id="billing_vat" @if(!empty($userDetails->vat))value="{{$userDetails->vat}}" @endif       placeholder="Vat Number" class="form-control"/>
+                            
+</div>
+
+                <div class="form-group"> 
+                <label for="">Shipping Method</label>
+                <select name="Payment Method" id="">Payment Method
+                <option value="DHL"> <img src="img/frontend_images/dhl.png" width="24px;"height="24px;" >  DHL</option>
+                <option value="FedEx">FedEx</option>
+                </select>           
+                </div>
 
 <div class="form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -94,6 +106,10 @@
                             </div>
                             <div class="form-group"> 
 			<input type="text" name="shipping_mobile" @if(!empty($shippingDetails->mobile)) value="{{$shippingDetails->mobile}}" @endif id="shipping_mobile" placeholder="Shipping Mobile" class="form-control"/>
+</div>
+
+<div class="form-group"> 
+			<input type="text" name="shipping_vat" @if(!empty($shippingDetails->vat)) value="{{$shippingDetails->vat}}" @endif id="shipping_vat" placeholder="Vat Number" class="form-control"/>
 </div>
 							<button type="submit" class="btn btn-default">Checkout</button>
 					
