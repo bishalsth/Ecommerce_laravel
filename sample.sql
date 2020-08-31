@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 24, 2020 at 10:59 AM
+-- Generation Time: Aug 31, 2020 at 10:01 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -43,7 +43,7 @@ CREATE TABLE `banners` (
 
 INSERT INTO `banners` (`id`, `image`, `title`, `link`, `status`, `created_at`, `updated_at`) VALUES
 (7, '24017.jpg', 'Banner 1', 'Banner 1', 1, '2020-08-23 07:28:23', '2020-08-23 07:28:23'),
-(9, '45437.png', 'ad', 'asd', 1, '2020-08-23 07:53:24', '2020-08-23 07:53:24');
+(10, '68908.jpg', 'asd', 'asd', 1, '2020-08-26 02:30:22', '2020-08-26 02:30:22');
 
 -- --------------------------------------------------------
 
@@ -65,14 +65,6 @@ CREATE TABLE `cart` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `product_id`, `product_name`, `product_code`, `product_color`, `size`, `price`, `quantity`, `user_email`, `session_id`, `created_at`, `updated_at`) VALUES
-(1, 16, 'Copper Eights', 'CE-L', 'Yellow', 'Large', '3000', 1, '', 'epkNf78UMKwLPIXPIc0VsCnT9za0iI4VNEjoFcQg', NULL, NULL),
-(2, 17, 'SInging Bowl', 'SB-L', 'RED', 'large', '10000', 1, '', 'epkNf78UMKwLPIXPIc0VsCnT9za0iI4VNEjoFcQg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -117,7 +109,26 @@ INSERT INTO `categories` (`id`, `parent_id`, `name`, `description`, `url`, `stat
 (25, 5, 'Singing Bowl', 'Singing Bowl', 'Singing Bowl', 1, '2020-08-23 05:35:09', '2020-08-23 05:35:09'),
 (26, 5, 'Prayer Wheels', 'Prayer Wheels', 'Prayer Wheels', 1, '2020-08-23 05:35:38', '2020-08-23 05:35:38'),
 (27, 6, 'Tibetan Door Curtains', 'Tibetan Door Curtains', 'Tibetan Door Curtains', 1, '2020-08-23 05:42:48', '2020-08-23 05:42:48'),
-(28, 6, 'Tibetan Treasure Box', 'Tibetan Treasure Box', 'Tibetan Treasure Box', 1, '2020-08-23 05:43:11', '2020-08-23 05:43:11');
+(28, 6, 'Tibetan Treasure Box', 'Tibetan Treasure Box', 'Tibetan Treasure Box', 1, '2020-08-23 05:43:11', '2020-08-23 05:43:11'),
+(30, 0, 'Wild Hemp Product', 'Wild Hemp Product', 'Wild Hemp Product', 1, '2020-08-31 01:55:19', '2020-08-31 01:55:19'),
+(31, 0, 'Hand Knit Woolen Product', 'Hand Knit Woolen Product', 'Hand Knit Woolen Product', 1, '2020-08-31 01:56:38', '2020-08-31 01:56:38'),
+(32, 0, 'Musical Instruments', 'Musical Instruments', 'Musical Instruments', 1, '2020-08-31 01:57:00', '2020-08-31 01:57:00'),
+(33, 0, 'Resin Statue', 'Resin Statue', 'Resin Statue', 1, '2020-08-31 01:57:18', '2020-08-31 01:57:18'),
+(34, 0, 'Metal Craft', 'Metal Craft', 'Metal Craft', 1, '2020-08-31 01:57:28', '2020-08-31 01:57:28'),
+(35, 0, 'Wood Craft', 'Wood Craft', 'Wood Craft', 1, '2020-08-31 01:57:49', '2020-08-31 01:57:49'),
+(36, 0, 'Handcrafted Mask', 'Handcrafted Mask', 'Handcrafted Mask', 1, '2020-08-31 01:58:04', '2020-08-31 01:58:04'),
+(37, 0, 'Posters Maps calender', 'Posters Maps calender', 'Posters Maps calender', 1, '2020-08-31 01:58:19', '2020-08-31 01:58:19'),
+(38, 0, 'Natural Herbal Products', 'Posters Maps calender', 'Posters Maps calender', 1, '2020-08-31 01:58:39', '2020-08-31 01:58:39'),
+(39, 0, 'Carved Tibetan Prayer Mani stones', 'Carved Tibetan Prayer Mani stones', 'Carved Tibetan Prayer Mani stones', 1, '2020-08-31 01:59:32', '2020-08-31 01:59:32'),
+(40, 0, 'Pashmina Shawl &Scarf', 'Pashmina Shawl &Scarf', 'Pashmina Shawl &Scarf', 1, '2020-08-31 01:59:59', '2020-08-31 01:59:59'),
+(41, 0, 'Batik art', 'Batik art', 'Batik art', 1, '2020-08-31 02:00:10', '2020-08-31 02:00:10'),
+(42, 0, 'Cds and DVD', 'Cds and DVD', 'Cds and DVD', 1, '2020-08-31 02:00:25', '2020-08-31 02:00:25'),
+(43, 0, 'Nepalses Product', 'Nepalses Product', 'Nepalses Product', 1, '2020-08-31 02:00:38', '2020-08-31 02:00:38'),
+(44, 33, 'Bhuddist Resin Statue', 'Bhuddist Resin Statue', 'Bhuddist Resin Statue', 1, '2020-08-31 02:06:22', '2020-08-31 02:06:22'),
+(45, 33, 'Decorative Statue', 'Decorative Statue', 'Decorative Statue', 1, '2020-08-31 02:06:36', '2020-08-31 02:06:36'),
+(46, 0, 'Feng shui Staute', 'Feng shui Staute', 'Feng shui Staute', 1, '2020-08-31 02:06:50', '2020-08-31 02:06:50'),
+(47, 33, 'Hindu Resin Statue', 'Hindu Resin Statue', 'Hindu Resin Statue', 1, '2020-08-31 02:07:11', '2020-08-31 02:07:11'),
+(48, 33, 'Resin Mask', 'Resin Mask', 'Resin Mask', 1, '2020-08-31 02:07:26', '2020-08-31 02:07:26');
 
 -- --------------------------------------------------------
 
@@ -403,7 +414,7 @@ CREATE TABLE `coupons` (
 
 INSERT INTO `coupons` (`id`, `coupon_code`, `amount`, `amount_type`, `expiry_date`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'test123', 1, 'Percentage', '2020-08-01', 1, '2020-08-13 02:31:34', '2020-08-14 06:10:40'),
-(3, 'test1234', 50, 'Percentage', '2020-08-15', 0, '2020-08-14 06:09:55', '2020-08-14 06:09:55'),
+(3, 'test1234', 50, 'Percentage', '2020-12-02', 1, '2020-08-14 06:09:55', '2020-08-26 03:40:27'),
 (4, 'test12345', 50, 'Percentage', '2020-08-22', 1, '2020-08-14 06:12:03', '2020-08-14 06:43:17');
 
 -- --------------------------------------------------------
@@ -423,6 +434,7 @@ CREATE TABLE `delivery_addresses` (
   `country` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pincode` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -431,8 +443,14 @@ CREATE TABLE `delivery_addresses` (
 -- Dumping data for table `delivery_addresses`
 --
 
-INSERT INTO `delivery_addresses` (`id`, `user_id`, `user_email`, `name`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Ram@gmail.com', 'shyam', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '2020-08-21 23:46:39', '2020-08-23 23:09:30');
+INSERT INTO `delivery_addresses` (`id`, `user_id`, `user_email`, `name`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `vat`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Ram@gmail.com', 'shyam', '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-21 23:46:39', '2020-08-30 14:00:07'),
+(2, 6, 'anusa@gmail.com', 'anusa', 'Kathmandu', 'Balaju', 'Gandaki', 'NEPAL', '44600', '981032566', '', '2020-08-25 09:01:20', '2020-08-25 09:10:58'),
+(3, 7, 'asd@gamail.com', 'asd', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '', '2020-08-26 02:26:56', '2020-08-26 02:26:56'),
+(4, 8, 'Ram123@gmail.com', 'Ram', '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-26 03:01:58', '2020-08-26 03:15:16'),
+(5, 9, 'hari@gmail.com', 'hari', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-26 03:39:52', '2020-08-26 03:40:48'),
+(6, 10, 'shyam@gmail.com', 'shyam', 'Balaju', 'Kathmadnu', 'Bagmati', 'AMERICAN SAMOA', '44600', '9810313500', '4566688', '2020-08-26 04:23:20', '2020-08-26 04:23:20'),
+(7, 5, 'bishal@gmail.com', 'bishal', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-27 08:26:08', '2020-08-27 08:49:21');
 
 -- --------------------------------------------------------
 
@@ -479,7 +497,73 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (11, '2020_08_13_081400_create_coupons_table', 8),
 (12, '2020_08_13_172514_create__g_g_table', 9),
 (13, '2020_08_15_050138_create_banners_table', 10),
-(14, '2020_08_20_065322_create_delivery_address_table', 11);
+(14, '2020_08_20_065322_create_delivery_address_table', 11),
+(15, '2020_08_27_133238_create_orders_table', 12),
+(17, '2020_08_27_133751_create_orders_products_table', 13);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `user_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pincode` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shipping_charges` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `coupon_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `coupon_amount` double(8,2) NOT NULL,
+  `order_status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_method` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `grand_total` double(8,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `user_email`, `name`, `address`, `city`, `state`, `pincode`, `country`, `mobile`, `shipping_charges`, `coupon_code`, `coupon_amount`, `order_status`, `payment_method`, `grand_total`, `created_at`, `updated_at`) VALUES
+(7, 1, 'Ram@gmail.com', 'shyam', 'Balaju', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'COD', 4520.00, '2020-08-28 08:19:43', '2020-08-28 08:19:43'),
+(8, 1, 'Ram@gmail.com', 'shyam', '', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'COD', 18000.00, '2020-08-30 14:00:22', '2020-08-30 14:00:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_products`
+--
+
+CREATE TABLE `orders_products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_size` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_color` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_price` double(8,2) NOT NULL,
+  `product_qty` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders_products`
+--
+
+INSERT INTO `orders_products` (`id`, `order_id`, `user_id`, `product_id`, `product_code`, `product_name`, `product_size`, `product_color`, `product_price`, `product_qty`, `created_at`, `updated_at`) VALUES
+(7, 7, 1, 22, 'ww', 'Wai Wai', 'packet', 'YELLow', 20.00, 1, '2020-08-28 08:19:43', '2020-08-28 08:19:43'),
+(8, 8, 1, 16, 'CE-L', 'Copper Eights', 'Large', 'Yellow', 3000.00, 1, '2020-08-30 14:00:23', '2020-08-30 14:00:23');
 
 -- --------------------------------------------------------
 
@@ -525,7 +609,9 @@ INSERT INTO `products` (`id`, `category_id`, `product_name`, `product_code`, `pr
 (18, 25, 'Tibetan Singing Bowl', 'TSB', 'Yellow', 'Tibetan Singing Bowl', 'Tibetan Singing Bowl', 3600.00, '12825.jpg', 1, '2020-08-23 05:40:34', '2020-08-23 05:40:34'),
 (19, 26, 'Red Prayer Wheels', 'RPW', 'REd', 'Red Prayer Wheels', 'Red Prayer Wheels', 2500.00, '2261.jpeg', 1, '2020-08-23 05:41:48', '2020-08-23 05:41:48'),
 (20, 28, 'REd Treasere box', 'RTB', 'REd', 'REd Treasere box', 'REd Treasere box', 45000.00, '95980.jpeg', 1, '2020-08-23 05:44:14', '2020-08-23 05:44:14'),
-(21, 27, 'REd Door Curtains', 'RDC', 'REd', 'REd Treasere box', 'REd Treasere box', 5600.00, '70297.jpeg', 1, '2020-08-23 05:45:31', '2020-08-23 05:45:31');
+(21, 27, 'REd Door Curtains', 'RDC', 'REd', 'REd Treasere box', 'REd Treasere box', 5600.00, '70297.jpeg', 1, '2020-08-23 05:45:31', '2020-08-23 05:45:31'),
+(23, 44, 'Antique Medicine buddha Statue', 'AMBC', 'Brown', 'Antique Medicine buddha Statue', 'Antique Medicine buddha Statue', 6.25, '65897.jpg', 1, '2020-08-31 02:10:46', '2020-08-31 02:10:46'),
+(24, 45, 'Skeleton Ashtray', 'SA', 'Brown', 'Skeleton Ashtray', 'Skeleton Ashtray', 4.25, '75589.jpg', 1, '2020-08-31 02:13:07', '2020-08-31 02:13:07');
 
 -- --------------------------------------------------------
 
@@ -553,7 +639,9 @@ INSERT INTO `products_attributes` (`id`, `product_id`, `sku`, `size`, `price`, `
 (2, 15, 'BM-M', 'Medium', 10000.00, 5, '2020-08-23 05:48:53', '2020-08-23 05:48:53'),
 (3, 16, 'CE-L', 'Large', 3000.00, 10, '2020-08-23 05:50:36', '2020-08-23 05:50:36'),
 (4, 17, 'SB-L', 'large', 10000.00, 10, '2020-08-23 05:51:26', '2020-08-23 05:51:26'),
-(5, 18, 'TSB-L', 'large', 1500.00, 10, '2020-08-23 05:51:58', '2020-08-23 05:51:58');
+(5, 18, 'TSB-L', 'large', 1500.00, 10, '2020-08-23 05:51:58', '2020-08-23 05:51:58'),
+(6, 22, 'ww', 'packet', 20.00, 10, '2020-08-26 11:15:43', '2020-08-26 11:15:43'),
+(7, 22, 'ww-s', 'cartoon', 500.00, 10, '2020-08-26 11:15:43', '2020-08-26 11:15:43');
 
 -- --------------------------------------------------------
 
@@ -595,6 +683,9 @@ CREATE TABLE `users` (
   `country` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pincode` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mobile` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `C_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -604,10 +695,19 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'shyam', 'Ram@gmail.com', NULL, '$2y$10$8ovxbS9kJ.dbr9KVr/2z8.37FPTJuyfhEBn80hAVDaOh0jekfXYna', 1, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', NULL, '2020-06-27 06:05:54', '2020-08-23 23:09:30'),
-(4, 'hfdd`', 'asd@gam.com', NULL, '$2y$10$SHvQpct4X2/EPmKmur5fou7aSryRm5X328h7RutmX/lHDUGeGhs7i', 0, '', '', '', '', '', '', NULL, '2020-08-16 09:23:03', '2020-08-16 09:23:03'),
-(5, 'bishal', 'bishal@gmail.com', NULL, '$2y$10$xZ2ZhVtYo9K23FTej66PZex2j0y6wAINMq.Y3xl76vVpnpztc./iu', 0, '', '', '', 'Select Country', '', '', NULL, '2020-08-17 03:57:18', '2020-08-18 07:15:21');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `vat`, `C_name`, `zip`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'shyam', 'Ram@gmail.com', NULL, '$2y$10$8ovxbS9kJ.dbr9KVr/2z8.37FPTJuyfhEBn80hAVDaOh0jekfXYna', 1, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', 'aa', NULL, NULL, NULL, '2020-06-27 06:05:54', '2020-08-30 14:00:07'),
+(4, 'hfdd`', 'asd@gam.com', NULL, '$2y$10$SHvQpct4X2/EPmKmur5fou7aSryRm5X328h7RutmX/lHDUGeGhs7i', 0, '', '', '', '', '', '', '', NULL, NULL, NULL, '2020-08-16 09:23:03', '2020-08-16 09:23:03'),
+(5, 'bishal', 'bishal@gmail.com', NULL, '$2y$10$xZ2ZhVtYo9K23FTej66PZex2j0y6wAINMq.Y3xl76vVpnpztc./iu', 0, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-17 03:57:18', '2020-08-27 08:49:21'),
+(6, 'anusa', 'anusa@gmail.com', NULL, '$2y$10$JWCwrPyNTZu2B9MKFNID5.UEr.nvWU2IUDc5v4p6lARN8L8p4X9gq', 0, '', 'Balaju', 'Gandaki', 'NEPAL', '44600', '981032566', '', NULL, NULL, NULL, '2020-08-25 08:25:38', '2020-08-25 09:10:58'),
+(7, 'asd', 'asd@gamail.com', NULL, '$2y$10$WOBytwd4vJeuN5ss6.9LmeJMTfG8AJYCzjkieuCFXtXvsAxJOfdsq', 0, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '', NULL, NULL, NULL, '2020-08-26 02:26:42', '2020-08-26 02:26:56'),
+(8, 'Ram', 'Ram123@gmail.com', NULL, '$2y$10$5ZwZUKhHBoeGRbK3sIMAkuQXS3QhS/8/7vxQXsQdvOFTlkm9w2EDm', 0, '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-26 03:00:34', '2020-08-26 03:15:16'),
+(9, 'hari', 'hari@gmail.com', NULL, '$2y$10$v5C5x23irkJLG9ViUvYlVu3sFo79vNffdEr6xxKiNZoSIQAxzqAJW', 0, '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-26 03:38:36', '2020-08-26 03:40:47'),
+(10, 'shyam', 'shyam@gmail.com', NULL, '$2y$10$aC6VJIwaYMLzYxn0BlrHKO9FbzYUgySusl9/KYhixc6A4tDbmchdu', 0, 'Balaju', 'Kathmadnu', 'Bagmati', 'AMERICAN SAMOA', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-26 04:22:27', '2020-08-26 04:25:12'),
+(11, 'hari', 'hasri@gmail.com', NULL, '$2y$10$1I90iwrqwtMHXxhvppgV4eMrQ9QJUL4jAbXSK7avg2I58RTdcKWuy', 0, 'Box', 'Test', 'Test', 'London', '4500', '9810313500', '44600', 'Tesla', 'Test', NULL, '2020-08-30 09:21:03', '2020-08-30 09:21:03'),
+(12, 'TEst 2', 'anusaa@gmail.com', NULL, '$2y$10$Uj57z44h9mrZljWt0.SJ8OS2cX1Yx/WTsBrJM6QaDWK7NgILdZfOO', 2, 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', NULL, '2020-08-30 09:37:25', '2020-08-30 09:37:25'),
+(13, 'rabinrobin', 'robin@gmail.com', NULL, '$2y$10$dOsi6/9oR6KwP14d4q8toOjbK6hmdZdowujzmSYgv8eDC7.N2Oqqu', 2, 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', NULL, '2020-08-30 11:13:07', '2020-08-30 11:13:07'),
+(14, 'tesla', 'tesla@gmail.com', NULL, '$2y$10$9ZDTT1ed2ORUdIqKACf/we/zG86g9mMsAddpw78yMJnEqlkVvAgpa', 2, 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', NULL, '2020-08-30 11:14:27', '2020-08-30 11:14:27');
 
 -- --------------------------------------------------------
 
@@ -675,6 +775,18 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders_products`
+--
+ALTER TABLE `orders_products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -719,19 +831,19 @@ ALTER TABLE `_g_g`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -749,7 +861,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `delivery_addresses`
 --
 ALTER TABLE `delivery_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -761,19 +873,31 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `orders_products`
+--
+ALTER TABLE `orders_products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `products_attributes`
 --
 ALTER TABLE `products_attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `products_images`
@@ -785,7 +909,7 @@ ALTER TABLE `products_images`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `_g_g`

@@ -1,4 +1,4 @@
-<div class="left-sidebar ">
+<div class="left-sidebar " style="padding-left:20px;">
 						<h2>Category</h2>
 						<div class="panel-group category-products " id="accordian"><!--category-productsr-->
 							<div class="panel panel-default border border-dark" >

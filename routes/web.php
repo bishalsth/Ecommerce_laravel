@@ -131,5 +131,13 @@ Route::group(['middleware' => ['auth']], function(){
 
 });
 
+Route::get('/wholesale-login','WholesaleController@wholesaleLogin');
+
+
+
+Route::post('/wholesale-register','WholesaleController@register');
+Route::get('/wholesale-board','WholesaleController@dashboard');
+Route::post('/wholesale-signin','WholesaleController@login');
+
 
 Route::get('/logout','AdminController@logout');

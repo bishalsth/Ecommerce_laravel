@@ -7,11 +7,11 @@ $mainCategories = Controller::mainCategories();
 
 <header id="header"><!--header-->
 		<div class="header_top " ><!--header_top-->
-			<div class="container">
+			<div class="container-fluid" >
 				<div class="row " >
-					<div class="col-sm-6">
+					<div class="col-sm-6" >
 						<div class="contactinfo">
-							<ul class="nav nav-pills">
+							<ul class="nav nav-pills" style="padding-left:20px;">
 								<li><a href="#"><i class="fa fa-phone"></i> +977 95 01 88 821</a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i> lionwebhost.com</a></li>
 							</ul>
@@ -19,7 +19,7 @@ $mainCategories = Controller::mainCategories();
 					</div>
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
-							<ul class="nav navbar-nav">
+							<ul class="nav navbar-nav" style="padding-right:20px;">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
@@ -27,23 +27,23 @@ $mainCategories = Controller::mainCategories();
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
 						</div>
-					</div>
+					</div> 
 				</div>
+				
 				<div class="row">
-					<div class="col-sm-2">
-						<div class="logo pull-left">
-							<a href="index.html"><img src="img/frontend_images/home/storelogo.png" width="60px"alt="" /></a>
+					<div class="col-sm-12">
+						<div class="logo pull-left" style="padding-left:20px;">
+							<a href="#"><img src="img/frontend_images/home/storelogo.png" width="60px"alt="" /></a>
 						</div>
-						
-						
-						
-					</div>
-					<div class="col-sm-10">
-						<div class="shop-menu pull-right">
+						<div class="shop-menu pull-right" style="padding-right:20px;">
 							<ul class="nav navbar-nav">
-								<li><div class="search_box pull-right">
+								<li>
+									<div class="search_box pull-right">
 							<input type="text" placeholder="Search"/>
-						</div></li>
+</div>
+						
+					
+					</li>
 								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
 								<li><a href="{{url('/orders')}}"><i class="fa fa-crosshairs"></i> Orders</a></li>
 								<li><a href="{{url('/cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
@@ -55,7 +55,10 @@ $mainCategories = Controller::mainCategories();
 								@endif
 							</ul>
 						</div>
+						
+						
 					</div>
+					
 				</div>
 			</div>
 		</div><!--/header_top-->
@@ -84,7 +87,7 @@ $mainCategories = Controller::mainCategories();
 										@endforeach
                                     </ul>
                                 </li> 
-								<li ><a href="{{asset('/')}}">Wholesale</a>
+								<li ><a href="{{asset('/wholesale-login')}}">Wholesale</a>
                                    
                                 </li> 
 								
@@ -96,25 +99,19 @@ $mainCategories = Controller::mainCategories();
 					</div>
 					<div class="col-sm-3">
 						
-						<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
+						
 							
 							<div class="btn-group">
 								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
+									US DOLLAR
 									<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu">
 									<li><a href="#">Canadian Dollar</a></li>
+									
+									<li><a href="#">AUS Dollar</a></li>
 									<li><a href="#">Pound</a></li>
+									<li><a href="#">Euro</a></li>
 								</ul>
 							</div>
 					</div>

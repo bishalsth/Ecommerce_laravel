@@ -50,7 +50,30 @@
 										<div class="productinfo text-center">
 											<img src="{{asset( 'img/backend_images/products/small/'.$product->image) }}" alt="" />
 											<h2>$ {{$product->price}}</h2>
-											<p>{{$product->description}}</p>
+                                            <p>{{$product->description}}</p>
+                                            <br>
+                                            
+                                            <div class="center">
+   
+      </p><div class="input-group">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+                <span class="glyphicon glyphicon-minus"></span>
+              </button>
+          </span>
+          <input type="text" name="quant[2]" class="form-control input-number" value="10" min="1" max="100">
+          <span class="input-group-btn">
+              <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+                  <span class="glyphicon glyphicon-plus"></span>
+              </button>
+          </span>
+      </div>
+	<p></p>
+</div>
+
+
+                                    
+
 											<a href="{{url('/product/'.$product->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 										<!-- <div class="product-overlay">
@@ -79,27 +102,13 @@
 				</div>
 			</div>
 		</div>
-	</section>
-	<style>
-        .whatsapp{
-            position: fixed;
-            left: 90%;
-            top:80%;
-        }
-        .viber{
-            position: fixed;
-            left: 91%;
-            top:65%;
-        }
-    </style>
+    </section>
+    
 
 
-	<a class="whatsapp" href="https://wa.me/9813245782/"> 
-        <img src="https://icons-for-free.com/iconfiles/png/512/chat+friends+message+social+whatsapp+icon-1320194692736560212.png" alt="Contact in Whatsapp" width="100px" height="100px">
-        </a>
-​
-        <!-- Client Number -->
-        <a class="viber" href="viber://chat/?number=%+9779813245782">
-        <img src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Viber-512.png" alt="Contact in Viber" width="80px" height="80px">
-        </a>
+
+
+
+
 @endsection
+
