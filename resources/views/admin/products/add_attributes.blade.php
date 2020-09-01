@@ -50,6 +50,10 @@
                 <label class="control-label">Product Color</label>
                 <label class="control-label"> <strong> {{$productDetails->product_color}}</strong></label>
               </div>
+              <div class="control-group">
+                <label class="control-label">Product Price</label>
+                <label class="control-label"> <strong> {{$productDetails->price}}</strong></label>
+              </div>
 
 
               <div class="control-group">

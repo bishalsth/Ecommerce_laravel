@@ -36,6 +36,26 @@
 	<section>
 		<div class="container-fluid" style="padding-right:200px;">
  			<div class="row">
+			 <style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("img/back.jpg");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="bg"></div>
 				<div class="col-sm-3">
 					@include('layouts.frontLayout.front_sidebar')
 				</div>
@@ -83,13 +103,13 @@
 	<style>
         .whatsapp{
             position: fixed;
-            left: 90%;
+            left: 95%;
             top:80%;
         }
         .viber{
             position: fixed;
-            left: 91%;
-            top:65%;
+            left: 95%;
+            top:72%;
         }
     </style>
 

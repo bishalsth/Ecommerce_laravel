@@ -2,8 +2,9 @@
 @section('content')
 
 
+
 <section>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
 			@if(Session::has('flash_message_error'))
         <div class="alert alert-error alert-block">
@@ -125,7 +126,7 @@
 								</span>
 								<p><b>Availability:</b> <span id="TextId">@if($TotalStock>0)In Stock @else Out of Stock @endif</span> </p>
 								<p><b>Condition:</b> New</p>
-								<p><b>Brand:</b> E-SHOPPER</p>
+								<p><b>Description:</b> {{$productDetails->description}}</p>
 								
 								<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 							</div><!--/product-information-->

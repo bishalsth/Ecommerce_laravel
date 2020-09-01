@@ -157,7 +157,7 @@
 								
 									<tr class="shipping-cost">
 										<td>Shipping Cost</td>
-										<td>Free</td>										
+										<td> $ 10</td>										
 									</tr>
 									<tr class="shipping-cost">
 										<td>Discount Amount</td>
@@ -171,7 +171,7 @@
 									</tr>
 									<tr>
 										<td>Grand Total</td>
-										<td><span>RS {{ $grand_total= $total_amount-Session::get('CouponAmount')}} </span></td>
+										<td><span>RS {{ $grand_total= $total_amount-Session::get('CouponAmount')+10}} </span></td>
 									</tr>
 								</table>
 							</td>

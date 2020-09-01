@@ -67,6 +67,11 @@
                 <select name="Payment Method" id="">Payment Method
                 <option value="DHL"> <img src="img/frontend_images/dhl.png" width="24px;"height="24px;" >  DHL</option>
                 <option value="FedEx">FedEx</option>
+                <option value="FedEx">Aramex</option>
+                <option value="FedEx">TNT</option>
+                <option value="FedEx">Local Courier</option>
+                <option value="FedEx">Air Cargo</option>
+                <option value="FedEx">Sea Cargo</option>
                 </select>           
                 </div>
 

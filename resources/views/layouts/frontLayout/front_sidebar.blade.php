@@ -22,6 +22,12 @@
                                 </div>
                                 @endforeach
 							</div>
+							<br> <br>
+
+							<h2>Free Shipping</h2>
+							<div class="shipping text-center"><!--shipping-->
+							<img src="{{asset( 'img/frontend_images/home/shipping.jpg ') }}" alt="" />
+						</div><!--/shipping-->
 							
 
 							

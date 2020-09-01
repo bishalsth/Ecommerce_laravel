@@ -129,6 +129,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/admin/delete-banner/{id}','BannerController@deleteBanner');
     Route::match(['get','post'],'/admin/edit-banner/{id}','BannerController@editBanner');
 
+    //Route for order
+    Route::get('/admin/view-order','ProductsController@adminOrder');
+
 });
 
 Route::get('/wholesale-login','WholesaleController@wholesaleLogin');
