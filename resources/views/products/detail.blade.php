@@ -7,7 +7,7 @@
 		<div class="container-fluid">
 			<div class="row">
 			@if(Session::has('flash_message_error'))
-        <div class="alert alert-error alert-block">
+        <div class="alert alert-danger alert-block">
 	<button type="button" class="close" data-dismiss="alert">×</button>	
         <strong>{{ session('flash_message_error') }}</strong>
 </div>
@@ -96,7 +96,7 @@
 						</div>
 
 						<div class="col-sm-7">
-							<form method="post" name="addtocartForm" id="addtocartForm" action="{{url('add-cart')}}" >{{csrf_field()}}
+							<form method="post" name="addtocartForm" id="addtocartForm"  action="{{url('add-cart')}}" >{{csrf_field()}}
 							<input type="hidden" name="product_id" value="{{$productDetails->id}}">
 							<input type="hidden" name="product_name" value="{{$productDetails->product_name}}">
 							<input type="hidden" name="product_code" value="{{$productDetails->product_code}}">
@@ -106,8 +106,10 @@
 								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
 								<h2> {{$productDetails->product_name}}</h2>
                                 <p>Product Code: {{$productDetails->product_code}}</p>
-                                <p> <select id="selSize" name="size" style="width:150px;">
-                                    <option value="Select Size">Select Size</option>
+                                <p> 
+									
+								<select id="selSize" name="size" style="width:150px;" required>
+                                    <option value="">Select Size</option>
                                     @foreach($productDetails->attributes as $att)
                                     <option value="{{$productDetails->id}}-{{$att->size}}">{{$att->size}}</option>
                                     @endforeach
@@ -188,12 +190,12 @@
 							@foreach($relatedProducts->chunk(3) as $chunk)
 							<div <?php if($count==1){ ?> class="item active" <?php } else { ?> class="item" <?php } ?>>
 							@foreach($chunk as $item)	
-							<div class="col-sm-4">
+							<div class="col-sm-3">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img style="width:200;" src="{{asset( 'img/backend_images/products/small/'.$item->image) }}" alt="" />
-													<h2>RS {{ $item->price }}</h2>
+													<h2>$ {{ $item->price }}</h2>
 													<p>{{ $item->product_name }}</p>
 													<a href="{{ url('/product/'.$item->id) }}"><button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button></a>
 												</div>
@@ -218,5 +220,4 @@
 			</div>
 		</div>
     </section>
-    
-    @endsection
+   @endsection
