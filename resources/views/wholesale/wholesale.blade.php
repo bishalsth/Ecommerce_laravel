@@ -1,4 +1,4 @@
-@extends('layouts.frontLayout.front_design')
+@extends('layouts.wholesaleLayout.front_design')
 @section('content')
 <section id="slider"><!--slider-->
 		<div class="container-fluid">

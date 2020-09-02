@@ -86,6 +86,7 @@ class WholesaleController extends Controller
                $user->save();
                if(Auth::attempt(['email'=>$data['email'],'password'=>$data['password']])){
                     // echo "success";die;
+                    Session::put('WholesaleSession',$data['email']);
                    return redirect('/wholesale-board');
                }
 
@@ -111,6 +112,7 @@ class WholesaleController extends Controller
         $data = $request->all();
         // echo "<pre>"; print_r($data); die;
         if(Auth::attempt(['email'=>$data['email'],'password'=>$data['password'],'admin'=>'2'])){
+            Session::put('WholesaleSession',$data['email']);
             
             return redirect('/wholesale-board');
         }else{
@@ -143,6 +145,13 @@ class WholesaleController extends Controller
 
        
        
+
+    }
+
+    public function logout(){
+        Auth::logout();
+        Session::forget('WholesaleSession');
+        return redirect('/wholesale-board');
 
     }
 }

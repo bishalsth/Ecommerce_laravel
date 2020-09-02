@@ -139,10 +139,16 @@ Route::get('/wholesale-login','WholesaleController@wholesaleLogin');
 
 
 Route::post('/wholesale-register','WholesaleController@register');
-Route::get('/wholesale-board','WholesaleController@dashboard');
+
 Route::post('/wholesale-signin','WholesaleController@login');
 // Route::get('/wholesale/{id}','WholesaleController@product');
 Route::match(['get','post'],'/wholesale/{id}','WholesaleController@product');
 
 
 Route::get('/logout','AdminController@logout');
+Route::group(['middleware' => ['wholesalelogins']], function(){
+    Route::get('/wholesale-board','WholesaleController@dashboard');
+});
+
+//Wholeslae logout
+Route::get('/wholesale-logout','WholesaleController@logout');
