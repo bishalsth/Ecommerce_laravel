@@ -56,8 +56,6 @@
 					</div>
 				</div>
 				
-
-				<?php echo $quantity;?>
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
@@ -118,10 +116,11 @@
                                 </select> </p>
 								<img src="images/product-details/rating.png" alt="" />
 								<span>
-								
 									<span id="getPrice">$ {{$productDetails->price}}</span>
 									<label>Quantity:</label>
-									<input type="text" name="quantity" value="{{$quantity}}" />
+
+                                 
+									<input type="text" name="quantity" value=" {{$data['quantity']}}" />
 									@if($TotalStock>0)
 									<button type="submit" id="CartBtn" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>

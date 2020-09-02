@@ -14,7 +14,7 @@
 						<div class="carousel-inner">
 						@foreach($banners as $key => $banner)
 							<div class="item @if($key==0) active @endif">
-							<a href="{{$banner->link}}"> <img src="img/frontend_images/banners/{{$banner->image}}" width="100%" height="300px" alt=""></a>
+							<a href="#"> <img src="img/frontend_images/banners/{{$banner->image}}" width="100%" height="300px" alt=""></a>
 							</div>
 							@endforeach
 							
@@ -40,10 +40,12 @@
 					@include('layouts.frontLayout.front_sidebar')
 				</div>
 				
+			
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
                         <h2 class="title text-center">Features Items</h2>
                         @foreach($productsAll as $product)
+						<form method="post" name="addtocartForm" id="addtocartForm"  action="{{url('/wholesale/'.$product->id)}}" >{{csrf_field()}}
 						<div class="col-sm-3" >
 							<div class="product-image-wrapper">
 								<div class="single-products">
@@ -51,31 +53,25 @@
 											<img src="{{asset( 'img/backend_images/products/small/'.$product->image) }}" alt="" />
 											<h2>$ {{$product->price}}</h2>
                                             <p>{{$product->description}}</p>
-                                            <br>
+                                        
                                             
                                             <div class="center">
    
-      </p><div class="input-group">
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
-                <span class="glyphicon glyphicon-minus"></span>
-              </button>
-          </span>
-          <input type="text" name="quant[2]" class="form-control input-number" value="10" min="1" max="100">
-          <span class="input-group-btn">
-              <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-                  <span class="glyphicon glyphicon-plus"></span>
-              </button>
-          </span>
-      </div>
+      </p>
+	  <label for="">Quantity</label> :
+	  <input type="text" value="" name="quantity" style="width:50px">
 	<p></p>
 </div>
 
 
                                     
 
-											<a href="{{url('/product/'.$product->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+<button type="submit" id="CartBtn" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Add to cart
+									</button>
 										</div>
+										</form>
 										<!-- <div class="product-overlay">
 											<div class="overlay-content">
 												<h2>$56</h2>

@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Product;
 use App\Category;
 use App\Banner;
+use App\ProductsImage;
+use App\ProductsAttribute;
 
 class WholesaleController extends Controller
 {
@@ -114,6 +116,33 @@ class WholesaleController extends Controller
         }else{
             return redirect()->back()->with('flash_message_error','Invalid email or password');
         }
+
+    }
+
+    public function product(Request $request,$id=null){
+        $data= $request->all();
+
+        // $quantity = $data['quantity'];
+        // echo "<pre>";print_r($quantity);die;
+        $categories = Category::with('categories')->where(['parent_id'=>0])->get();
+
+        $alternateImage = ProductsImage::where(['product_id'=>$id])->get();
+
+        $TotalStock = ProductsAttribute::where('product_id',$id)->sum('stock');
+      
+       
+        $productDetails = Product::with('attributes')->where('id',$id)->first();
+      
+
+        $relatedProducts = Product::where('id','!=',$id)->where(['category_id'=>$productDetails->category_id])->get();
+     
+
+
+        
+        return view('wholesale.w_detail')->with(compact('productDetails','categories','alternateImage','TotalStock','relatedProducts','data'));
+
+       
+       
 
     }
 }
