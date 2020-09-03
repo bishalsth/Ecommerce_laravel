@@ -140,4 +140,8 @@ class UsersController extends Controller
         User::where('id',Auth::User()->id)->update(['password'=>$new_pwd]);
         return redirect()->back()->with('flash_message_success','Password updated Successfully');
     }
+
+    public function contact(){
+        return view('contact');
+    }
 }

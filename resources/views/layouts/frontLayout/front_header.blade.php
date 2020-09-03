@@ -12,8 +12,8 @@ $mainCategories = Controller::mainCategories();
 					<div class="col-sm-6 " >
 						<div class="contactinfo " style="margin-left:30px;">
 							<ul class="nav nav-pills "  >
-								<li style="margin-top:10px;"><a href="#"><i class="fa fa-phone"></i> +977 95 01 88 821</a></li>
-								<li style="margin-top:10px;"> <a href="#"><i class="fa fa-envelope"></i> lionwebhost.com</a></li>
+								<li ><a href="#"><i class="fa fa-phone"></i> +977 9851018264</a></li>
+								<li > <a href="#"><i class="fa fa-envelope"></i> info@lordbhuddahimalayan.com</a></li>
 							</ul>
 						</div>
 					</div>

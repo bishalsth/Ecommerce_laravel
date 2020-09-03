@@ -173,3 +173,4 @@ Route::match(['get','post'],'/order-review-wholesale', 'WholesaleController@orde
 
 //Wholeslae logout
 Route::get('/wholesale-logout','WholesaleController@logout');
+Route::get('/contact','UsersController@contact');
