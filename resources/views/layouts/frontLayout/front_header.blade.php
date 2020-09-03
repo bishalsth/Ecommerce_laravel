@@ -9,11 +9,11 @@ $mainCategories = Controller::mainCategories();
 		<div class="header_top " ><!--header_top-->
 			<div class="container-fluid" >
 				<div class="row " >
-					<div class="col-sm-6" >
-						<div class="contactinfo">
-							<ul class="nav nav-pills" style="padding-left:20px;">
-								<li><a href="#"><i class="fa fa-phone"></i> +977 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> lionwebhost.com</a></li>
+					<div class="col-sm-6 " >
+						<div class="contactinfo " style="margin-left:30px;">
+							<ul class="nav nav-pills "  >
+								<li style="margin-top:10px;"><a href="#"><i class="fa fa-phone"></i> +977 95 01 88 821</a></li>
+								<li style="margin-top:10px;"> <a href="#"><i class="fa fa-envelope"></i> lionwebhost.com</a></li>
 							</ul>
 						</div>
 					</div>
@@ -33,21 +33,19 @@ $mainCategories = Controller::mainCategories();
 				<div class="row">
 
 				<div class="col-3">
-				<div class="logo pull-left animate__animated animate__bounce animate__delay-0.2s"  style="padding-left:20px;">
-				<style>
-					
-				</style>
+				<div class="logo pull-left animate__animated animate__bounce animate__delay-0.2s"  style="margin-left:30px;">
+				<
 							<!-- <a href="#"><img src="img/frontend_images/home/storelogo.png" width="60px"alt="" /></a> -->
-							<h2 style="color:#CB4154;" ><span id="family" style="color:red;">LORD</span>-BHUDDHA <span style="color:indigo;">HIMALAYAN</span> 	</h2>
+							<h2 style="color:#CB4154;" ><span id="family" style="color:red;">LORD</span> BHUDDHA <span style="color:indigo;">HIMALAYAN</span> 	</h2>
 						</div>
 
 						
 				</div>
 
 				<div class="col-9">
-				<div class="shop-menu pull-right" style="padding-right:20px;">
+				<div class="shop-menu pull-right" style="margin-right:50px;">
 							<ul class="nav navbar-nav">
-								<li>
+								<li style="margin-right:150px;">
 									<div class="search_box pull-right">
 							<input type="text" placeholder="Search"/>
 							</div>
