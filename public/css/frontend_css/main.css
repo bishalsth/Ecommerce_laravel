@@ -8,11 +8,12 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background:;
+  background-color:#f0f2f5;
   position: relative;
   font-weight:400px;
   
 }
+
 
 ul li {
   list-style: none;
@@ -348,7 +349,7 @@ ul.sub-menu {
 **************************/
 
 #footer {
-  background: #f3f3aa;
+  background: #262a31;
 }
 
 

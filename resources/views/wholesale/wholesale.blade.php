@@ -43,7 +43,7 @@
 			
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-                        <h2 class="title text-center">Features Items</h2>
+                        <h2 class="title text-center">Wholesale Items</h2>
                         @foreach($productsAll as $product)
 						<form method="post" name="addtocartForm" id="addtocartForm"  action="{{url('/wholesale/'.$product->id)}}" >{{csrf_field()}}
 						<div class="col-sm-3" >

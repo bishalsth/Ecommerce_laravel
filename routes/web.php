@@ -142,12 +142,33 @@ Route::post('/wholesale-register','WholesaleController@register');
 
 Route::post('/wholesale-signin','WholesaleController@login');
 // Route::get('/wholesale/{id}','WholesaleController@product');
-Route::match(['get','post'],'/wholesale/{id}','WholesaleController@product');
+
 
 
 Route::get('/logout','AdminController@logout');
 Route::group(['middleware' => ['wholesalelogins']], function(){
     Route::get('/wholesale-board','WholesaleController@dashboard');
+    Route::match(['get','post'],'/wholesale/{id}','WholesaleController@product');
+
+  
+
+//Add to cart wholesale
+Route::match(['get','post'],'/add-cart-wholesale','WholesaleController@addtoCart');
+
+
+
+Route::get('/cart-wholesale','WholesaleController@cart');
+
+//wholesale checkout
+
+Route::match(['get','post'],'/checkout-wholesale','WholesaleController@checkout');
+
+Route::match(['get','post'],'/order-review-wholesale', 'WholesaleController@orderReview');
+
+ //Place Order
+ Route::match(['get','post'],'/place-order-wholesale','WholesaleController@placeOrder');
+
+ Route::get('/thanks-wholesale','WholesaleController@thanks');
 });
 
 //Wholeslae logout

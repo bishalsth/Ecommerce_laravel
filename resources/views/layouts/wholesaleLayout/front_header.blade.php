@@ -81,7 +81,7 @@ $mainCategories = Controller::mainCategories();
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="{{asset('/wholesale-board')}}" class="active">Home</a></li>
 								
-								<li><a href="contact-us.html">Cart</a></li>
+								<li><a href="{{url('/cart-wholesale')}}">Cart</a></li>
 								<li><a href="contact-us.html">Order</a></li>
                                    
                              

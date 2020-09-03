@@ -57,7 +57,7 @@
 				</div>
 				
 
-				<?php echo $quantity;?>
+				
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
@@ -121,7 +121,7 @@
 								
 									<span id="getPrice">$ {{$productDetails->price}}</span>
 									<label>Quantity:</label>
-									<input type="text" name="quantity" value="{{$quantity}}" />
+									<input type="text" name="quantity" value="1" />
 									@if($TotalStock>0)
 									<button type="submit" id="CartBtn" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>

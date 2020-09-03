@@ -24,11 +24,25 @@
 							</div>
 							<br> <br>
 
-							<h2>Free Shipping</h2>
+						
 							<div class="shipping text-center"><!--shipping-->
 							<img src="{{asset( 'img/frontend_images/home/shipping.jpg ') }}" alt="" />
 						</div><!--/shipping-->
+
+						<br> <br>
+
 							
+						
+							<div class="shipping text-center"><!--shipping-->
+							<img src="{{asset( 'img/frontend_images/ss.gif') }}" alt="" />
+						</div><!--/shipping-->
+							
+						<br>
+
+						
+							<div class="shipping text-center"><!--shipping-->
+							<img src="{{asset( 'img/frontend_images/adv.jpg ') }}" height="250px" alt="" />
+						</div><!--/shipping-->
 
 							
 						</div><!--/category-products-->

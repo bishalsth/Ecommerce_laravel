@@ -31,20 +31,28 @@ $mainCategories = Controller::mainCategories();
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-12">
-						<div class="logo pull-left" style="padding-left:20px;">
-							<a href="#"><img src="img/frontend_images/home/storelogo.png" width="60px"alt="" /></a>
+
+				<div class="col-3">
+				<div class="logo pull-left animate__animated animate__bounce animate__delay-0.2s"  style="padding-left:20px;">
+				<style>
+					
+				</style>
+							<!-- <a href="#"><img src="img/frontend_images/home/storelogo.png" width="60px"alt="" /></a> -->
+							<h2 style="color:#CB4154;" ><span id="family" style="color:red;">LORD</span>-BHUDDHA <span style="color:indigo;">HIMALAYAN</span> 	</h2>
 						</div>
-						<div class="shop-menu pull-right" style="padding-right:20px;">
+
+						
+				</div>
+
+				<div class="col-9">
+				<div class="shop-menu pull-right" style="padding-right:20px;">
 							<ul class="nav navbar-nav">
 								<li>
 									<div class="search_box pull-right">
 							<input type="text" placeholder="Search"/>
-</div>
-						
-					
-					</li>
-								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
+							</div>
+								</li>
+									<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
 								<li><a href="{{url('/orders')}}"><i class="fa fa-crosshairs"></i> Orders</a></li>
 								<li><a href="{{url('/cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								@if(empty(Auth::check()))
@@ -55,9 +63,9 @@ $mainCategories = Controller::mainCategories();
 								@endif
 							</ul>
 						</div>
-						
-						
-					</div>
+
+				</div>
+					
 					
 				</div>
 			</div>

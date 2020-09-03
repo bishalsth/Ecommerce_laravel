@@ -1,4 +1,4 @@
-@extends('layouts.frontLayout.front_design')
+@extends('layouts.wholesaleLayout.front_design')
 @section('content')
 
 
@@ -96,7 +96,7 @@
 						</div>
 
 						<div class="col-sm-7">
-							<form method="post" name="addtocartForm" id="addtocartForm"  action="{{url('add-cart')}}" >{{csrf_field()}}
+							<form method="post" name="addtocartForm" id="addtocartForm"  action="{{url('add-cart-wholesale')}}" >{{csrf_field()}}
 							<input type="hidden" name="product_id" value="{{$productDetails->id}}">
 							<input type="hidden" name="product_name" value="{{$productDetails->product_name}}">
 							<input type="hidden" name="product_code" value="{{$productDetails->product_code}}">
@@ -120,7 +120,7 @@
 									<label>Quantity:</label>
 
                                  
-									<input type="text" name="quantity" value=" {{$data['quantity']}}" />
+									<input type="text" name="quantity" value=" 1" />
 									@if($TotalStock>0)
 									<button type="submit" id="CartBtn" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
