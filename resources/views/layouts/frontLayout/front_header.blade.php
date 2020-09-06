@@ -34,7 +34,7 @@ $mainCategories = Controller::mainCategories();
 
 				<div class="col-3">
 				<div class="logo pull-left animate__animated animate__bounce animate__delay-0.2s"  style="margin-left:30px;">
-				<
+				
 							<!-- <a href="#"><img src="img/frontend_images/home/storelogo.png" width="60px"alt="" /></a> -->
 							<h2 style="color:#CB4154;" ><span id="family" style="color:red;">LORD</span> BHUDDHA <span style="color:indigo;">HIMALAYAN</span> 	</h2>
 						</div>
