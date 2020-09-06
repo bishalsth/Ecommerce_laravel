@@ -101,25 +101,19 @@ body, html {
 		</div>
 	</section>
 	<style>
-        .whatsapp{
-            position: fixed;
-            left: 95%;
-            top:80%;
-        }
-        .viber{
-            position: fixed;
-            left: 95%;
-            top:72%;
-        }
+        
     </style>
 
-
-	<a class="whatsapp" href="https://wa.me/9813245782/"> 
-        <img src="https://icons-for-free.com/iconfiles/png/512/chat+friends+message+social+whatsapp+icon-1320194692736560212.png" alt="Contact in Whatsapp" width="100px" height="100px">
-        </a>
-​
+		<div class="whatsappDiv">
+			<a class="whatsapp" href="https://wa.me/9813245782/"> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/WhatsApp_logo-color-vertical.svg/600px-WhatsApp_logo-color-vertical.svg.png" width="100%"; height="100%"; alt="Contact in Whatsapp" >
+		</a>
+	</div>
+	
+​	<div class="viberDIV">
         <!-- Client Number -->
         <a class="viber" href="viber://chat/?number=%+9779813245782">
-        <img src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Viber-512.png" alt="Contact in Viber" width="80px" height="80px">
+        <img src="https://image.flaticon.com/icons/png/512/124/124016.png" alt="Contact in Viber" width="100%" height="100%">
         </a>
-@endsection
+		</div>
+		@endsection

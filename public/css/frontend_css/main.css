@@ -2554,4 +2554,53 @@ h2.title {
   color: #FE980F;
 }
 
+.whatsappDiv{
+  position: fixed;
+  left: 95%;
+top:80%;
+float:right;
+}
+.whatsapp, img{
+
+}
+.viberDIV{
+  position: fixed;
+  left: 95%;
+top:68%;
+float:right;
+}
+
+.whatsappDiv{
+  width: 100px;
+  height: 100px;
+}
+
+
+.viberDIV{
+  width: 100px;
+  height: 100px;
+}
+
+@media screen and (max-width: 600px) {
+  .whatsappDiv{
+    width: 40px;
+    height: 40px;
+    left: 90%;
+  }
+
+  .viberDIV{
+    width: 40px;
+    height: 40px;
+    left: 90%;
+    top:71%;
+  }
+  .search_box input {
+   width: 400px;
+   margin-left: 20px;
+  }
+  
+}
+
+
+
 
