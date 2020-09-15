@@ -36,7 +36,7 @@
                   <th>Link</th>
                   <th>Status </th>
                   <th>Image</th>
-                  <
+                  <!-- <th>Download</th> -->
                   <th>Action</th>
                 </tr>
               </thead>
@@ -51,6 +51,7 @@
                   <td>   @if($banner->status == "1") Active @else Inactive @endif</td>
 
                   <td>  <img style="width:60px;"src="{{asset('/img/frontend_images/banners/'.$banner->image)}}" alt=""> </td>
+                  <!-- <td><a href="{{asset('/img/frontend_images/banners/'.$banner->image)}}">as</a></td> -->
                   <td class="center"><a href="{{url('/admin/edit-banner/'.$banner->id)}}" class="btn btn-primary btn-mini">Edit</a> | <a id ="delCat" href="{{url('/admin/delete-banner/'.$banner->id)}}" class="btn btn-danger btn-mini">Delete</a></td>
                 </tr>
                 @endforeach

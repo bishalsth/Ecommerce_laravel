@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 31, 2020 at 10:01 AM
+-- Generation Time: Sep 15, 2020 at 01:04 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -42,8 +42,10 @@ CREATE TABLE `banners` (
 --
 
 INSERT INTO `banners` (`id`, `image`, `title`, `link`, `status`, `created_at`, `updated_at`) VALUES
-(7, '24017.jpg', 'Banner 1', 'Banner 1', 1, '2020-08-23 07:28:23', '2020-08-23 07:28:23'),
-(10, '68908.jpg', 'asd', 'asd', 1, '2020-08-26 02:30:22', '2020-08-26 02:30:22');
+(11, '13563.jpg', 'baner', 'banner', 1, '2020-08-31 02:46:16', '2020-08-31 02:46:16'),
+(14, '80733.jpg', 'banner3', 'banner3', 1, '2020-09-01 02:38:22', '2020-09-01 02:38:22'),
+(15, '47702.jpg', 'banner4', 'banner 4', 1, '2020-09-01 02:40:37', '2020-09-01 02:40:37'),
+(16, '67759.jpg', 'ad', 'asd', 1, '2020-09-03 13:17:01', '2020-09-03 13:17:01');
 
 -- --------------------------------------------------------
 
@@ -65,6 +67,15 @@ CREATE TABLE `cart` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `product_id`, `product_name`, `product_code`, `product_color`, `size`, `price`, `quantity`, `user_email`, `session_id`, `created_at`, `updated_at`) VALUES
+(11, 16, 'Copper Eights', 'Copper eights -7', 'Yellow', '7 Inch', '22', 1, 'anusaa@gmail.com', 'v1DwuApIQEvsFJ9YTrPrYY2vlin63VQ1JkAUrO7R', NULL, NULL),
+(12, 30, 'TimmersGems', 'tg-m', 'Brown', 'medium', '33', 1, 'anusaa@gmail.com', 'v1DwuApIQEvsFJ9YTrPrYY2vlin63VQ1JkAUrO7R', NULL, NULL),
+(13, 28, 'Double Dorje Sterling Silver', 'ddss-m', 'Green', 'medium', '24.5', 11, 'anusaa@gmail.com', 'v1DwuApIQEvsFJ9YTrPrYY2vlin63VQ1JkAUrO7R', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -444,13 +455,14 @@ CREATE TABLE `delivery_addresses` (
 --
 
 INSERT INTO `delivery_addresses` (`id`, `user_id`, `user_email`, `name`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `vat`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Ram@gmail.com', 'shyam', '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-21 23:46:39', '2020-08-30 14:00:07'),
+(1, 1, 'Ram@gmail.com', 'shyam', 'a', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-21 23:46:39', '2020-09-02 11:49:38'),
 (2, 6, 'anusa@gmail.com', 'anusa', 'Kathmandu', 'Balaju', 'Gandaki', 'NEPAL', '44600', '981032566', '', '2020-08-25 09:01:20', '2020-08-25 09:10:58'),
 (3, 7, 'asd@gamail.com', 'asd', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '', '2020-08-26 02:26:56', '2020-08-26 02:26:56'),
 (4, 8, 'Ram123@gmail.com', 'Ram', '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-26 03:01:58', '2020-08-26 03:15:16'),
 (5, 9, 'hari@gmail.com', 'hari', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-26 03:39:52', '2020-08-26 03:40:48'),
 (6, 10, 'shyam@gmail.com', 'shyam', 'Balaju', 'Kathmadnu', 'Bagmati', 'AMERICAN SAMOA', '44600', '9810313500', '4566688', '2020-08-26 04:23:20', '2020-08-26 04:23:20'),
-(7, 5, 'bishal@gmail.com', 'bishal', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-27 08:26:08', '2020-08-27 08:49:21');
+(7, 5, 'bishal@gmail.com', 'bishal', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', '2020-08-27 08:26:08', '2020-08-31 10:45:07'),
+(8, 12, 'anusaa@gmail.com', 'TEst 2', 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', 'ada', '2020-09-02 11:29:26', '2020-09-03 11:52:45');
 
 -- --------------------------------------------------------
 
@@ -533,8 +545,14 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `user_email`, `name`, `address`, `city`, `state`, `pincode`, `country`, `mobile`, `shipping_charges`, `coupon_code`, `coupon_amount`, `order_status`, `payment_method`, `grand_total`, `created_at`, `updated_at`) VALUES
-(7, 1, 'Ram@gmail.com', 'shyam', 'Balaju', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'COD', 4520.00, '2020-08-28 08:19:43', '2020-08-28 08:19:43'),
-(8, 1, 'Ram@gmail.com', 'shyam', '', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'COD', 18000.00, '2020-08-30 14:00:22', '2020-08-30 14:00:22');
+(10, 1, 'Ram@gmail.com', 'shyam', '', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'paypal', 9.90, '2020-08-31 10:44:09', '2020-08-31 10:44:09'),
+(11, 5, 'bishal@gmail.com', 'bishal', 'Balaju', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'paypal', 9.90, '2020-08-31 10:45:15', '2020-08-31 10:45:15'),
+(12, 1, 'Ram@gmail.com', 'shyam', '', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'paypal', 10073.05, '2020-09-02 10:46:34', '2020-09-02 10:46:34'),
+(13, 12, 'anusaa@gmail.com', 'TEst 2', 'ad', 'TEst 2', 'TEst 2', 'TEst 2', 'AMERICAN SAMOA', 'TEst 2', '', '', 0.00, 'New', 'COD', 3310.00, '2020-09-02 11:29:44', '2020-09-02 11:29:44'),
+(14, 12, 'anusaa@gmail.com', 'TEst 2', 'Balaju', 'Kathmadnu', 'Bagmati', '44600', 'AMERICAN SAMOA', '9810313500', '', '', 0.00, 'New', 'paypal', 33010.00, '2020-09-02 11:31:18', '2020-09-02 11:31:18'),
+(15, 12, 'anusaa@gmail.com', 'TEst 2', 'ad', 'Kathmadnu', 'Bagmati', '44600', 'AMERICAN SAMOA', '9810313500', '', '', 0.00, 'New', 'COD', 897.60, '2020-09-02 11:44:39', '2020-09-02 11:44:39'),
+(16, 1, 'Ram@gmail.com', 'shyam', 'a', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'paypal', 907.60, '2020-09-02 11:49:46', '2020-09-02 11:49:46'),
+(17, 12, 'anusaa@gmail.com', 'TEst 2', 'Balaju', 'Kathmadnu', 'Bagmati', '44600', 'NEPAL', '9810313500', '', '', 0.00, 'New', 'COD', 2427.15, '2020-09-03 11:59:12', '2020-09-03 11:59:12');
 
 -- --------------------------------------------------------
 
@@ -562,8 +580,14 @@ CREATE TABLE `orders_products` (
 --
 
 INSERT INTO `orders_products` (`id`, `order_id`, `user_id`, `product_id`, `product_code`, `product_name`, `product_size`, `product_color`, `product_price`, `product_qty`, `created_at`, `updated_at`) VALUES
-(7, 7, 1, 22, 'ww', 'Wai Wai', 'packet', 'YELLow', 20.00, 1, '2020-08-28 08:19:43', '2020-08-28 08:19:43'),
-(8, 8, 1, 16, 'CE-L', 'Copper Eights', 'Large', 'Yellow', 3000.00, 1, '2020-08-30 14:00:23', '2020-08-30 14:00:23');
+(10, 10, 1, 27, 'cgd-m', 'Copper Gau Dorje', 'medium', 'Red', 9.90, 1, '2020-08-31 10:44:09', '2020-08-31 10:44:09'),
+(11, 11, 5, 27, 'cgd-m', 'Copper Gau Dorje', 'medium', 'Red', 9.90, 1, '2020-08-31 10:45:15', '2020-08-31 10:45:15'),
+(12, 12, 1, 29, 'sss-m', 'Sterling SIlver Assorted finger ring', 'Medium', 'ALL', 1.20, 10, '2020-09-02 10:46:34', '2020-09-02 10:46:34'),
+(13, 13, 12, 16, 'CE-M', 'Copper Eights', 'medium', 'Yellow', 3000.00, 1, '2020-09-02 11:29:45', '2020-09-02 11:29:45'),
+(14, 14, 12, 18, 'TSB-L', 'Tibetan Singing Bowl', 'large', 'Yellow', 1500.00, 22, '2020-09-02 11:31:18', '2020-09-02 11:31:18'),
+(15, 15, 12, 29, 'sss-m', 'Sterling SIlver Assorted finger ring', 'Medium', 'ALL', 1.20, 250, '2020-09-02 11:44:39', '2020-09-02 11:44:39'),
+(16, 16, 1, 29, 'sss-m', 'Sterling SIlver Assorted finger ring', 'Medium', 'ALL', 1.20, 250, '2020-09-02 11:49:46', '2020-09-02 11:49:46'),
+(17, 17, 12, 25, 'lps-l', 'Lapis Ganesha statue 4.5 x 5 inch', 'large', 'blue', 7.25, 125, '2020-09-03 11:59:13', '2020-09-03 11:59:13');
 
 -- --------------------------------------------------------
 
@@ -611,7 +635,14 @@ INSERT INTO `products` (`id`, `category_id`, `product_name`, `product_code`, `pr
 (20, 28, 'REd Treasere box', 'RTB', 'REd', 'REd Treasere box', 'REd Treasere box', 45000.00, '95980.jpeg', 1, '2020-08-23 05:44:14', '2020-08-23 05:44:14'),
 (21, 27, 'REd Door Curtains', 'RDC', 'REd', 'REd Treasere box', 'REd Treasere box', 5600.00, '70297.jpeg', 1, '2020-08-23 05:45:31', '2020-08-23 05:45:31'),
 (23, 44, 'Antique Medicine buddha Statue', 'AMBC', 'Brown', 'Antique Medicine buddha Statue', 'Antique Medicine buddha Statue', 6.25, '65897.jpg', 1, '2020-08-31 02:10:46', '2020-08-31 02:10:46'),
-(24, 45, 'Skeleton Ashtray', 'SA', 'Brown', 'Skeleton Ashtray', 'Skeleton Ashtray', 4.25, '75589.jpg', 1, '2020-08-31 02:13:07', '2020-08-31 02:13:07');
+(25, 47, 'Lapis Ganesha statue 4.5 x 5 inch', 'lps', 'blue', 'Lapis Ganesha statue 4.5 x 5 inch', 'Lapis Ganesha statue 4.5 x 5 inch', 7.25, '78821.jpeg', 1, '2020-08-31 02:23:34', '2020-08-31 02:23:34'),
+(26, 48, 'Lapis Garuda Mask 9 X 14 inch', 'lpgs', 'red', 'Lapis Garuda Mask 9 X 14 inch', 'Lapis Garuda Mask 9 X 14 inch', 23.25, '64034.jpg', 1, '2020-08-31 02:24:53', '2020-08-31 02:24:53'),
+(27, 24, 'Copper Gau Dorje', 'CGD', 'Red', 'Copper Gau Dorje', 'Copper Gau Dorje', 10.00, '13331.jpeg', 1, '2020-08-31 02:27:54', '2020-08-31 02:27:54'),
+(28, 45, 'Double Dorje Sterling Silver', 'DDSS', 'Green', 'Double Dorje Sterling Silver', 'Double Dorje Sterling Silver', 25.00, '11255.jpg', 1, '2020-08-31 02:28:57', '2020-08-31 02:28:57'),
+(29, 45, 'Sterling SIlver Assorted finger ring', 'SSS', 'ALL', 'Sterling SIlver Assorted finger ring', 'Sterling SIlver Assorted finger ring', 1.20, '91538.jpeg', 1, '2020-08-31 02:30:32', '2020-08-31 02:30:32'),
+(30, 44, 'TimmersGems', 'TG', 'Brown', 'TimmersGems', 'TimmersGems', 33.20, '39763.jpg', 1, '2020-08-31 02:31:54', '2020-08-31 02:31:54'),
+(31, 44, 'Tibetal GAu', 'TG', 'Yellow', 'Tibetal GAu', 'Tibetal GAu', 25.20, '69257.jpg', 1, '2020-08-31 02:34:32', '2020-08-31 02:34:32'),
+(32, 24, 'Brass Metal', 'BM', 'Brwon', 'This is made up silver with size 7 m.', 'This is made up silver with size 7 m.', 25.00, '13462.jpg', 1, '2020-09-01 02:51:57', '2020-09-01 02:51:57');
 
 -- --------------------------------------------------------
 
@@ -641,7 +672,28 @@ INSERT INTO `products_attributes` (`id`, `product_id`, `sku`, `size`, `price`, `
 (4, 17, 'SB-L', 'large', 10000.00, 10, '2020-08-23 05:51:26', '2020-08-23 05:51:26'),
 (5, 18, 'TSB-L', 'large', 1500.00, 10, '2020-08-23 05:51:58', '2020-08-23 05:51:58'),
 (6, 22, 'ww', 'packet', 20.00, 10, '2020-08-26 11:15:43', '2020-08-26 11:15:43'),
-(7, 22, 'ww-s', 'cartoon', 500.00, 10, '2020-08-26 11:15:43', '2020-08-26 11:15:43');
+(7, 22, 'ww-s', 'cartoon', 500.00, 10, '2020-08-26 11:15:43', '2020-08-26 11:15:43'),
+(8, 23, 'ambc', 'large', 6.25, 10, '2020-08-31 02:38:35', '2020-08-31 02:38:35'),
+(9, 23, 'ambc-m', 'medium', 6.25, 10, '2020-08-31 02:38:35', '2020-08-31 02:38:35'),
+(10, 24, 'Sa-L', 'Large', 4.25, 11, '2020-08-31 02:39:30', '2020-08-31 02:39:30'),
+(11, 24, 'Sa-M', 'medium', 4.20, 10, '2020-08-31 02:39:31', '2020-08-31 02:39:31'),
+(12, 24, 'sa-S', 'small', 4.20, 22, '2020-08-31 02:39:31', '2020-08-31 02:39:31'),
+(13, 25, 'lps-l', 'large', 7.25, 11, '2020-08-31 02:40:49', '2020-08-31 02:40:49'),
+(14, 25, 'lps-m', 'medium', 7.25, 12, '2020-08-31 02:40:49', '2020-08-31 02:40:49'),
+(15, 26, 'lpgs-l', 'large', 23.50, 15, '2020-08-31 02:41:52', '2020-08-31 02:41:52'),
+(16, 26, 'lpgs-m', 'medium', 23.00, 11, '2020-08-31 02:41:52', '2020-08-31 02:41:52'),
+(17, 27, 'cgd-l', 'large', 10.00, 11, '2020-08-31 02:42:29', '2020-08-31 02:42:29'),
+(18, 27, 'cgd-m', 'medium', 9.90, 11, '2020-08-31 02:42:29', '2020-08-31 02:42:29'),
+(19, 28, 'ddss-l', 'large', 25.00, 11, '2020-08-31 02:42:58', '2020-08-31 02:42:58'),
+(20, 28, 'ddss-m', 'medium', 24.50, 12, '2020-08-31 02:42:58', '2020-08-31 02:42:58'),
+(21, 29, 'sss-m', 'Medium', 1.20, 22, '2020-08-31 02:43:16', '2020-08-31 02:43:16'),
+(22, 30, 'tg-l', 'large', 33.20, 10, '2020-08-31 02:43:42', '2020-08-31 02:43:42'),
+(23, 30, 'tg-m', 'medium', 33.00, 11, '2020-08-31 02:43:42', '2020-08-31 02:43:42'),
+(24, 31, 'TG', 'medium', 25.20, 22, '2020-08-31 02:44:28', '2020-08-31 02:44:28'),
+(25, 16, 'CE-M', 'medium', 3000.00, 10, '2020-09-01 02:47:41', '2020-09-01 02:47:41'),
+(26, 16, 'CE-S', 'small', 2500.00, 11, '2020-09-01 02:47:41', '2020-09-01 02:47:41'),
+(27, 16, 'Copper eights -7', '7 Inch', 22.00, 10, '2020-09-01 02:49:28', '2020-09-01 02:49:28'),
+(28, 32, 'BM-s', 'small', 10000.00, 10, '2020-09-01 02:55:25', '2020-09-01 02:55:25');
 
 -- --------------------------------------------------------
 
@@ -696,18 +748,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin`, `address`, `city`, `state`, `country`, `pincode`, `mobile`, `vat`, `C_name`, `zip`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'shyam', 'Ram@gmail.com', NULL, '$2y$10$8ovxbS9kJ.dbr9KVr/2z8.37FPTJuyfhEBn80hAVDaOh0jekfXYna', 1, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', 'aa', NULL, NULL, NULL, '2020-06-27 06:05:54', '2020-08-30 14:00:07'),
+(1, 'shyam', 'Ram@gmail.com', NULL, '$2y$10$8ovxbS9kJ.dbr9KVr/2z8.37FPTJuyfhEBn80hAVDaOh0jekfXYna', 1, 'as', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', 'aa', NULL, NULL, NULL, '2020-06-27 06:05:54', '2020-09-02 11:49:37'),
 (4, 'hfdd`', 'asd@gam.com', NULL, '$2y$10$SHvQpct4X2/EPmKmur5fou7aSryRm5X328h7RutmX/lHDUGeGhs7i', 0, '', '', '', '', '', '', '', NULL, NULL, NULL, '2020-08-16 09:23:03', '2020-08-16 09:23:03'),
-(5, 'bishal', 'bishal@gmail.com', NULL, '$2y$10$xZ2ZhVtYo9K23FTej66PZex2j0y6wAINMq.Y3xl76vVpnpztc./iu', 0, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-17 03:57:18', '2020-08-27 08:49:21'),
+(5, 'bishal', 'bishal@gmail.com', NULL, '$2y$10$xZ2ZhVtYo9K23FTej66PZex2j0y6wAINMq.Y3xl76vVpnpztc./iu', 0, '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-17 03:57:18', '2020-08-31 10:45:07'),
 (6, 'anusa', 'anusa@gmail.com', NULL, '$2y$10$JWCwrPyNTZu2B9MKFNID5.UEr.nvWU2IUDc5v4p6lARN8L8p4X9gq', 0, '', 'Balaju', 'Gandaki', 'NEPAL', '44600', '981032566', '', NULL, NULL, NULL, '2020-08-25 08:25:38', '2020-08-25 09:10:58'),
 (7, 'asd', 'asd@gamail.com', NULL, '$2y$10$WOBytwd4vJeuN5ss6.9LmeJMTfG8AJYCzjkieuCFXtXvsAxJOfdsq', 0, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '', NULL, NULL, NULL, '2020-08-26 02:26:42', '2020-08-26 02:26:56'),
 (8, 'Ram', 'Ram123@gmail.com', NULL, '$2y$10$5ZwZUKhHBoeGRbK3sIMAkuQXS3QhS/8/7vxQXsQdvOFTlkm9w2EDm', 0, '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-26 03:00:34', '2020-08-26 03:15:16'),
 (9, 'hari', 'hari@gmail.com', NULL, '$2y$10$v5C5x23irkJLG9ViUvYlVu3sFo79vNffdEr6xxKiNZoSIQAxzqAJW', 0, '', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-26 03:38:36', '2020-08-26 03:40:47'),
 (10, 'shyam', 'shyam@gmail.com', NULL, '$2y$10$aC6VJIwaYMLzYxn0BlrHKO9FbzYUgySusl9/KYhixc6A4tDbmchdu', 0, 'Balaju', 'Kathmadnu', 'Bagmati', 'AMERICAN SAMOA', '44600', '9810313500', '4566688', NULL, NULL, NULL, '2020-08-26 04:22:27', '2020-08-26 04:25:12'),
 (11, 'hari', 'hasri@gmail.com', NULL, '$2y$10$1I90iwrqwtMHXxhvppgV4eMrQ9QJUL4jAbXSK7avg2I58RTdcKWuy', 0, 'Box', 'Test', 'Test', 'London', '4500', '9810313500', '44600', 'Tesla', 'Test', NULL, '2020-08-30 09:21:03', '2020-08-30 09:21:03'),
-(12, 'TEst 2', 'anusaa@gmail.com', NULL, '$2y$10$Uj57z44h9mrZljWt0.SJ8OS2cX1Yx/WTsBrJM6QaDWK7NgILdZfOO', 2, 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', 'TEst 2', NULL, '2020-08-30 09:37:25', '2020-08-30 09:37:25'),
+(12, 'TEst 2', 'anusaa@gmail.com', NULL, '$2y$10$Uj57z44h9mrZljWt0.SJ8OS2cX1Yx/WTsBrJM6QaDWK7NgILdZfOO', 2, 'Balaju', 'Kathmadnu', 'Bagmati', 'NEPAL', '44600', '9810313500', 'TEst 2', 'TEst 2', 'TEst 2', NULL, '2020-08-30 09:37:25', '2020-09-03 11:52:44'),
 (13, 'rabinrobin', 'robin@gmail.com', NULL, '$2y$10$dOsi6/9oR6KwP14d4q8toOjbK6hmdZdowujzmSYgv8eDC7.N2Oqqu', 2, 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', 'rabin', NULL, '2020-08-30 11:13:07', '2020-08-30 11:13:07'),
-(14, 'tesla', 'tesla@gmail.com', NULL, '$2y$10$9ZDTT1ed2ORUdIqKACf/we/zG86g9mMsAddpw78yMJnEqlkVvAgpa', 2, 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', NULL, '2020-08-30 11:14:27', '2020-08-30 11:14:27');
+(14, 'tesla', 'tesla@gmail.com', NULL, '$2y$10$9ZDTT1ed2ORUdIqKACf/we/zG86g9mMsAddpw78yMJnEqlkVvAgpa', 2, 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', 'tesla', NULL, '2020-08-30 11:14:27', '2020-08-30 11:14:27'),
+(15, 'Test3', 'wholesale@gmail.com', NULL, '$2y$10$IBUEhpfAM/LlL.J8xaWDWuTJqVrjOn5X05YL5p3lebOHAUsl/gN5m', 2, 'Test3', 'Test3', 'Test3', 'Test3', 'Test3', 'Test3', 'Test3', 'Test3', 'Test3', NULL, '2020-09-01 02:18:18', '2020-09-01 02:18:18');
 
 -- --------------------------------------------------------
 
@@ -831,13 +884,13 @@ ALTER TABLE `_g_g`
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -861,7 +914,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `delivery_addresses`
 --
 ALTER TABLE `delivery_addresses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -879,25 +932,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `orders_products`
 --
 ALTER TABLE `orders_products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `products_attributes`
 --
 ALTER TABLE `products_attributes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `products_images`
@@ -909,7 +962,7 @@ ALTER TABLE `products_images`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `_g_g`

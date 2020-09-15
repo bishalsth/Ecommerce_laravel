@@ -144,4 +144,8 @@ class UsersController extends Controller
     public function contact(){
         return view('contact');
     }
+
+    public function test(){
+        return view('test');
+    }
 }
