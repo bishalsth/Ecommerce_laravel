@@ -34,14 +34,7 @@ class UsersController extends Controller
                $user->save();
 
 
-                // Send Register Email
-                // $email = $data['email'];
-                // $messageData = ['email'=>$data['email'],'name'=>$data['name']];
-                // Mail::send('email.register',$messageData,function($message) use($email)
-                // {   
-                //     $message->to($email)->subject('Registration with E-com Website');
-
-                // });
+                
 
                 // Send Confirmation email
                 $email = $data['email'];
@@ -91,7 +84,7 @@ class UsersController extends Controller
 
             $userStatus = User::where('email',$data['email'])->first();
             if($userStatus->status == 0){
-                return redirect()->back()->with('flash_message_error','Your account is not activated! Please contact admin');  
+                return redirect()->back()->with('flash_message_error','Your account is not activated! Please confirm your email to activate ');  
             }
 
             Session::put('frontSession',$data['email']);
@@ -100,6 +93,33 @@ class UsersController extends Controller
             return redirect()->back()->with('flash_message_error','Invalid email or password');
         }
 
+    }
+
+    public function confirmAccount($email){
+        // echo "hello";die;
+        $email= base64_decode($email);
+        $userCount= User::where('email',$email)->count();
+        // echo $userCount;die;
+        if($userCount >0){
+            $userDetails= User::where('email',$email)->first();
+            if($userDetails->status == 1){
+                return redirect('login-register')->with('flash_message_success','Your email is already activated');
+            }else{
+                User::where('email',$email)->update(['status'=>'1']);
+
+                // Send Register Email
+                
+                $messageData = ['email'=>$email,'name'=>$userDetails->name];
+                Mail::send('email.welcome',$messageData,function($message) use($email)
+                {   
+                    $message->to($email)->subject('Welcome to E-com Website');
+
+                });
+                return redirect('login-register')->with('flash_message_success','Your email is  activated.You can login now');
+            }
+        }else{
+            abort(404);
+        }
     }
 
     public function account(Request $request){
