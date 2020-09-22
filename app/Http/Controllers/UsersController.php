@@ -35,13 +35,25 @@ class UsersController extends Controller
 
 
                 // Send Register Email
+                // $email = $data['email'];
+                // $messageData = ['email'=>$data['email'],'name'=>$data['name']];
+                // Mail::send('email.register',$messageData,function($message) use($email)
+                // {   
+                //     $message->to($email)->subject('Registration with E-com Website');
+
+                // });
+
+                // Send Confirmation email
                 $email = $data['email'];
-                $messageData = ['email'=>$data['email'],'name'=>$data['name']];
-                Mail::send('email.register',$messageData,function($message) use($email)
+                $messageData = ['email'=>$data['email'],'name'=>$data['name'],'code'=>base64_encode($data['email'])];
+                Mail::send('email.confirmation',$messageData,function($message) use($email)
                 {   
-                    $message->to($email)->subject('Registration with E-com Website');
+                    $message->to($email)->subject('Confirm Your email');
 
                 });
+
+                return redirect()->back()->with('flash_message_success','Please confirm your email to activate your account');
+
 
                if(Auth::attempt(['email'=>$data['email'],'password'=>$data['password']])){
                    Session::put('frontSession',$data['email']);
@@ -76,6 +88,12 @@ class UsersController extends Controller
         $data = $request->all();
         // echo "<pre>"; print_r($data); die;
         if(Auth::attempt(['email'=>$data['email'],'password'=>$data['password']])){
+
+            $userStatus = User::where('email',$data['email'])->first();
+            if($userStatus->status == 0){
+                return redirect()->back()->with('flash_message_error','Your account is not activated! Please contact admin');  
+            }
+
             Session::put('frontSession',$data['email']);
             return redirect('cart');
         }else{

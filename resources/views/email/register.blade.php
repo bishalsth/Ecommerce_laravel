@@ -11,7 +11,7 @@
 
     <tr>
     
-    <td>$nbsp;</td></tr>
+    <td>&nbsp;</td></tr>
 
     <tr><td>Your Account has been successfully created</td></tr>
  
