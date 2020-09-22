@@ -132,6 +132,11 @@ Route::group(['middleware' => ['auth']], function(){
     //Route for order
     Route::get('/admin/view-order','ProductsController@adminOrder');
 
+    // view order details
+    Route::get('/admin/view-order/{id}','ProductsController@viewOrderDetails');
+    // update order status
+    Route::match(['get','post'],'/admin/update-order-status','ProductsController@updateOrderStatus');
+
 });
 
 Route::get('/wholesale-login','WholesaleController@wholesaleLogin');

@@ -700,9 +700,32 @@ class ProductsController extends Controller
     }
 
     public function adminOrder(){
-        $orderDetails=Order::with('orders')->get();
+        $orderDetails=Order::with('orders')->orderBy('id','Desc')->get();
         // $orderDetails = json_decode(json_encode($orderDetails));
         // echo "<pre>";print_r($orderDetails);die;
         return view ('admin.user.user_order')->with(compact('orderDetails'));
     }
+
+
+    // order Details
+     public function viewOrderDetails($order_id=null){
+         $orderDetails = Order::with('orders')->where('id',$order_id)->first();
+        //    $orderDetails = json_decode(json_encode($orderDetails));
+        // echo "<pre>";print_r($orderDetails);die;
+        $user_id = $orderDetails->user_id;
+        $userDetails = User::where('id',$user_id)->first();
+        // echo "<pre>";print_r($user_details);die;
+        
+        return view ('admin.user.view_order')->with(compact('orderDetails','userDetails'));
+
+     }
+
+     public function updateOrderStatus(Request $request){
+         if($request->isMethod('post')){
+             $data =$request->all();
+             Order::where('id',$data['order_id'])->update(['order_status'=>$data['order_status']]);
+             return redirect()->back()->with('flash_message_success','Order status has been updated successfully');
+         }
+
+     }
 }

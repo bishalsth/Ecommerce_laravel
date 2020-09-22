@@ -1,9 +1,9 @@
 @extends('layouts.adminLayout.admin_design')
 @section('content')
 <div id="content">
-  <div id="content-header">
+  <div id="coxntent-header">
   <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">orders</a> <a href="#" class="current">Validation</a> </div>
-    <h1>View Banner</h1>
+    <h1>View Order</h1>
     
     @if(Session::has('flash_message_error'))
         <div class="alert alert-error alert-block">
@@ -25,18 +25,22 @@
 
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
-            <h5>View Banner</h5>
+            <h5>View Order</h5>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered data-table">
               <thead>
                 <tr>
                   <th>Order ID</th>
-                  <th>User Email </th>
+                  <th>Order Date</th>
+                  <th>Customer Name</th>
+                  <th>Customer Email </th>
+                  <th>Order Products</th>
+                  <th>Order amount</th>
+                  <th>Order Status</th>
                   <th>Payment Method</th>
-                  <th>Product Name</th>
-                  <th>Product quantity</th>
-                  <th>Grand Total</th>
+                
+                  
                  
                   
                   <th>Action</th>
@@ -46,8 +50,10 @@
                   @foreach($orderDetails as $order)
                 <tr class="gradeX">
                   <td>{{$order->id}}</td>
+                  <td>{{$order->created_at}}</td>
+                  <td>{{$order->name}}</td>
                   <td>{{$order->user_email}}</td>
-                  <td>{{$order->payment_method}}</td>
+                  
                
                   <td>
                   @foreach($order->orders as $pro)
@@ -55,18 +61,15 @@
                   @endforeach
                   </td>
                  
-                  <td>
-                  @foreach($order->orders as $pro)
-                  {{$pro->product_qty}}
-                  @endforeach
-                  </td>
+                  
 
                   <td> $ {{$order->grand_total}}</td>
                 
-              
+                <td>{{$order->order_status}}</td>
+                <td>{{$order->payment_method}}</td>
 
               
-                  <td class="center"><a href="{{url('/admin/edit-order/'.$order->id)}}" class="btn btn-primary btn-mini">Edit</a> | <a id ="delCat" href="{{url('/admin/delete-order/'.$order->id)}}" class="btn btn-danger btn-mini">Delete</a></td> -->
+                  <td class="center"> <a  href="{{url('/admin/view-order/'.$order->id)}}" class="btn btn-success btn-mini">View Details</a></td> 
                 </tr>
                 @endforeach
                 

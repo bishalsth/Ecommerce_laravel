@@ -8,6 +8,7 @@ use App\Country;
 use Auth;
 use Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UsersController extends Controller
 {
@@ -31,6 +32,17 @@ class UsersController extends Controller
                $user->email = $data['email'];
                $user->password = bcrypt($data['password']);
                $user->save();
+
+
+                // Send Register Email
+                $email = $data['email'];
+                $messageData = ['email'=>$data['email'],'name'=>$data['name']];
+                Mail::send('email.register',$messageData,function($message) use($email)
+                {   
+                    $message->to($email)->subject('Registration with E-com Website');
+
+                });
+
                if(Auth::attempt(['email'=>$data['email'],'password'=>$data['password']])){
                    Session::put('frontSession',$data['email']);
                    return redirect('/cart');
@@ -55,6 +67,7 @@ class UsersController extends Controller
     public function logout(){
         Auth::logout();
         Session::forget('frontSession');
+        Session::forget('session_id');
         return redirect('/');
 
     }
