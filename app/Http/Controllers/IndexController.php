@@ -10,7 +10,7 @@ use App\Banner;
 class IndexController extends Controller
 {
     public function index(){
-        $productsAll = Product::inRandomOrder()->where('status',1)->get();
+        $productsAll = Product::inRandomOrder()->where('status',1)->paginate(8);
 
         $categories = Category::with('categories')->where(['parent_id'=>0])->get();
         // $categories = json_decode(json_encode($categories));

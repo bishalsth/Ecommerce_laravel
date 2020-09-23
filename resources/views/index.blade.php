@@ -90,7 +90,7 @@ body, html {
 							</div>
                         </div>
                         @endforeach
-					
+					<div style="text-align:center;">{{$productsAll->links()}}</div>
 						
 					</div><!--features_items-->
 					
