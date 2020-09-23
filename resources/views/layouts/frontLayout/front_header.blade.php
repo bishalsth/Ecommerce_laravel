@@ -46,8 +46,12 @@ $mainCategories = Controller::mainCategories();
 				<div class="shop-menu pull-right" style="margin-right:50px;">
 							<ul class="nav navbar-nav">
 								<li style="margin-right:150px;">
+								<form action="{{url('/search-products')}}" method="post">
+								{{csrf_field()}}
 									<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<input type="text" placeholder="Search" name="product"/>
+							<button type="submit" style="height:35px;margin-left:-3px;border:0px;">GO</button>
+							</form>
 							</div>
 								</li>
 									<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->

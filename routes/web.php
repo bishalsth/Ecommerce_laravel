@@ -55,6 +55,9 @@ Route::match(['get','post'],'/check-email','UsersController@checkEmail');
 //user logout
 Route::get('/user-logout','UsersController@logout');
 
+// Search Products
+Route::post('/search-products','ProductsController@searchProducts');
+
 //User Login
 Route::post('/user-login','UsersController@login');
 

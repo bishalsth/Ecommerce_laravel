@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
+
 use Image;
 use Auth;
 use Session;
@@ -669,6 +671,34 @@ class ProductsController extends Controller
 
                 Session::put('order_id',$order_id);
                 Session::put('grand_total',$data['grand_total']);
+
+                $productDetails = Order::with('orders')->where('id',$order_id)->first();
+                // $productDetails=json_decode(json_encode($productDetails));
+                // echo "<pre>"; print_r($productDetails);die;
+
+                $userDetails= User::where('id',$user_id)->first();
+                // $userDetails=json_decode(json_encode($userDetails));
+                // echo "<pre>"; print_r($userDetails);die;
+
+                // code for order email start
+                $email = $user_email;
+                $messageData = [
+                    'email'=>$email,
+                    'name'=>$shippingDetails->name,
+                    'order_id'=>$order_id,
+                    'productDetails'=> $productDetails,
+                    'userDetails'=>$userDetails
+                ];
+
+                Mail::send('email.order',$messageData,function($message)use($email){
+                    $message->to($email)->subject('Order placed E-com Website');
+                });
+
+
+
+                // code for order email ends
+
+
                  return redirect('/thanks');
 
             
@@ -727,5 +757,24 @@ class ProductsController extends Controller
              return redirect()->back()->with('flash_message_success','Order status has been updated successfully');
          }
 
+     }
+
+     public function searchProducts(Request $request){
+         if($request->isMethod('post')){
+             $data= $request->all();
+            //  echo "<pre>";print_r($data);die;
+
+            $categories = Category::with('categories')->where(['parent_id'=>0])->get();
+            // $categories= json_decode(json_encode($categories));
+            //   echo "<pre>";print_r($categories);die;
+
+            $search_product = $data['product'];
+
+            $productsAll = Product::where('product_name','like','%'.$search_product.'%')->orwhere('product_code',$search_product)->where('status',1)->get();
+
+            return view('products.listing')->with(compact('productsAll','categories','search_product'));
+            
+
+         }
      }
 }
