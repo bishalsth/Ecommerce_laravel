@@ -140,6 +140,10 @@ Route::group(['middleware' => ['auth']], function(){
 
     // view order details
     Route::get('/admin/view-order/{id}','ProductsController@viewOrderDetails');
+
+    // View Order Invoice
+    Route::get('/admin/view-order-invoice/{id}','ProductsController@viewOrderInvoice');
+
     // update order status
     Route::match(['get','post'],'/admin/update-order-status','ProductsController@updateOrderStatus');
 

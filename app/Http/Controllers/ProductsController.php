@@ -750,6 +750,19 @@ class ProductsController extends Controller
 
      }
 
+      // order Details Invoice
+      public function viewOrderInvoice($order_id=null){
+        $orderDetails = Order::with('orders')->where('id',$order_id)->first();
+       //    $orderDetails = json_decode(json_encode($orderDetails));
+       // echo "<pre>";print_r($orderDetails);die;
+       $user_id = $orderDetails->user_id;
+       $userDetails = User::where('id',$user_id)->first();
+       // echo "<pre>";print_r($user_details);die;
+       
+       return view ('admin.user.view_invoice')->with(compact('orderDetails','userDetails'));
+
+    }
+
      public function updateOrderStatus(Request $request){
          if($request->isMethod('post')){
              $data =$request->all();
