@@ -63,6 +63,13 @@ class ProductsController extends Controller
                  }
                  
             }
+            if(empty($data['feature_itm'])){
+                $feature_itm = 0;
+            }else{
+                $feature_itm =1;
+            }
+            $product->feature_itm=$feature_itm;
+
             if(empty($data['status'])){
                 $status = 0;
             }else{

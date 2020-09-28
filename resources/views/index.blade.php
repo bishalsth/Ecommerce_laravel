@@ -73,13 +73,7 @@ body, html {
 											<p>{{$product->description}}</p>
 											<a href="{{url('/product/'.$product->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
-										<!-- <div class="product-overlay">
-											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-										</div> -->
+										
 								</div>
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
@@ -96,8 +90,31 @@ body, html {
 					
 					
 					
+						<!-- new item -->
+					<div class="features_items"><!--features_items-->
+                        <h2 class="title text-center">Latest Items</h2>
+                        @foreach($latestAll as $latest)
+						<div class="col-sm-3" >
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img src="{{asset( 'img/backend_images/products/small/'.$latest->image) }}" alt="" />
+											<h2>$ {{$latest->price}}</h2>
+											<p>{{$latest->description}}</p>
+											<a href="{{url('/product/'.$latest->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+										
+								</div>
+								
+							</div>
+                        </div>
+                        @endforeach
+				
+						
+					</div><!--features_items-->
 				</div>
-			</div>
+
+				
 		</div>
 	</section>
 	<style>
